@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type="text"],[type="email"],[type="password"],[type="name"],textarea,select {
+input[type="text"],[type="email"],[type="password"],[type="full_name"],[type="phone_number"],[type="delivery_address"],textarea,select {
     @apply w-full my-1 px-3 py-2 border border-gray-300 rounded-2xl ;    
 
 }

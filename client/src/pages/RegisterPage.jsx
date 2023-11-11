@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function RegisterPage() {
-  const [name, setName] = useState("");
+  const [full_name, setFull_name] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [delivery_address, setDelivery_address] = useState("");
+  const [phone_number, setPhone_number] = useState("");
 
   async function RegisterUser(e) {
     e.preventDefault();
@@ -20,9 +22,11 @@ export default function RegisterPage() {
 
     try {
       await axios.post("/register", {
-        name,
+        full_name,
         email,
+        delivery_address,
         password,
+        phone_number
       });
       alert("Registration successful");
     } catch (err) {
@@ -35,13 +39,13 @@ export default function RegisterPage() {
       <div className="mb-60">
         <h1 className="text-4xl text-center mb-4">REGISTER</h1>
         <form className="max-w-md mx-auto" onSubmit={RegisterUser}>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="full_name">Name</label>
           <input
             type="text"
-            name="name"
-            placeholder="your name here"
+            name="full_name"
+            placeholder="your full_name here"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setFull_name(e.target.value)}
           />
           <label htmlFor="email">Email</label>
           <input
@@ -58,6 +62,22 @@ export default function RegisterPage() {
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+          <label htmlFor="delivery_address">Delivery_address</label>
+          <input
+            type="delivery_address"
+            name="delivery_address"
+            placeholder="delivery_address"
+            value={password}
+            onChange={(e) =>setDelivery_address(e.target.value)}
+          />
+          <label htmlFor="phone_number">Phone_number</label>
+          <input
+            type="phone_number"
+            name="phone_number"
+            placeholder="phone_number"
+            value={password}
+            onChange={(e) =>setPhone_number(e.target.value)}
           />
           <button type="submit" className="primary">
             Register
