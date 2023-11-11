@@ -19,6 +19,7 @@ app.use(cors(
 
 mongoose.connect('mongodb+srv://mihirie1:MIHIRI@cluster0.mrk5x5u.mongodb.net/?retryWrites=true&w=majority');
 
+
 app.get('/test',(req,res) => {
         res.json('test ok');
 });
