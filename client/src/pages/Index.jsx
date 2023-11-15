@@ -13,6 +13,7 @@ const ImageSlider = () => {
     
   };
 
+  
   return (
     <Slider {...settings}>
       <div>
