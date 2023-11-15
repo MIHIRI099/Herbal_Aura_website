@@ -1,8 +1,39 @@
+
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+const ImageSlider = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 0.1,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    
+  };
+
+  return (
+    <Slider {...settings}>
+      <div>
+      <img src="./images/imgs1c.png" alt="Slide 1" className="w-250 h-100" />
+      </div>
+      <div>
+      <img src="./images/imgs1c.png" alt="Slide 1" className="w-250 h-100" />
+      </div>
+      <div>
+      <img src="./images/imgs1c.png" alt="Slide 1" className="w-250 h-100" />
+      </div>
+      {/* Add more slides as needed */}
+    </Slider>
+  );
+};
+
 const NavigationBar = () => {
   return (
     <div>
       <nav>
-        <ul>
+        <ul className="navbar-list">
           <li><a href="#home">HOME</a></li>
           <li><a href="#wellness">WELLNESS</a></li>
           <li><a href="#products">PRODUCTS</a></li>
@@ -19,7 +50,7 @@ const Index = () => {
   return (
     <div>
       <NavigationBar />
-      <img src="/images/your-image.jpg" alt="Image Description" />
+      <ImageSlider />
     </div>
   );
 };
