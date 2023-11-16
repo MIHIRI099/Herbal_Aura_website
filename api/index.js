@@ -6,12 +6,13 @@ const bcrypt = require('bcryptjs');
 const User = require('./models/user');
 require('dotenv').config();
 const cors = require('cors');
-
-app.use(express.json());
+const cookieParser = require('cookie-parser');
 
 const bcryptSalt = bcrypt.genSaltSync(10);
-const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = 'sdfghjklvbnmghjkfgh';
 
+app.use(express.json());
+app.use(cookieParser());
 app.use(cors(
 {       origin: 'http://localhost:5173',
         credentials: true
@@ -19,7 +20,7 @@ app.use(cors(
 ));
 
 
-mongoose.connect('mongodb+srv://mihirie1:MIHIRI@cluster0.mrk5x5u.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://mihirie1:mihiri@cluster0.yatakqr.mongodb.net/?retryWrites=true&w=majority');
 
 
 app.get('/test',(req,res) => {
@@ -29,12 +30,14 @@ app.get('/test',(req,res) => {
 
 
 app.post('/register', async(req,res) => {
- const {name,email,password} = req.body; 
+ const {full_name,email,password,delivery_address,phone_number} = req.body; 
  try{
  const userDoc = await User.create({
-        name,
+        full_name,
         email,
         password:bcrypt.hashSync(password,bcryptSalt),
+        delivery_address,
+        phone_number,
 }); 
  res.json(userDoc);
 }
@@ -54,8 +57,15 @@ catch(err){
             const passwordMatch = bcrypt.compareSync(password, userDoc.password);
             if (passwordMatch) {
                 // Passwords match, login is successful
-                jwt.sign({ email: userDoc.email , id:userDoc._id }, process.env.JWT_SECRET, { expiresIn: '1h'});
-                res.cookie('token',token).json({ status: 'success', message: 'Login successful' });
+                jwt.sign({
+                    email:userDoc.email,
+                    id:userDoc._id, 
+                    full_name:userDoc.full_name},
+                    jwtSecret,{},(err,token) => { 
+                    if (err) throw err;
+                    res.cookie('token',token).json(userDoc);
+                });
+                
             } else {
                 // Passwords do not match, login failed
                 res.status(401).json({ status: 'error', message: 'Login failed' });
@@ -66,4 +76,18 @@ catch(err){
         }
     });
     
+    app.get('/profile',(req, res) => {
+       const token = req.cookies.token;
+         if(token){
+            jwt.verify(token,jwtSecret,{},async(err,user) => {
+                if(err) throw err;
+                const {full_name,email,_id} = await User.findById(userData.id);
+                res.json({full_name,email,_id});
+            });
+        }
+        else{
+            res.status(401).json({status:'error',message:'Not authorized'});
+        }
+    });
+
 app.listen(9000);   

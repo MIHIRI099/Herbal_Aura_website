@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function RegisterPage() {
-  const [full_name, setFull_name] = useState("");
+  const [full_name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [delivery_address, setDelivery_address] = useState("");
@@ -44,8 +44,8 @@ export default function RegisterPage() {
             type="text"
             name="full_name"
             placeholder="your full_name here"
-            value={name}
-            onChange={(e) => setFull_name(e.target.value)}
+            value={full_name}
+            onChange={(e) => setName(e.target.value)}
           />
           <label htmlFor="email">Email</label>
           <input
@@ -68,7 +68,7 @@ export default function RegisterPage() {
             type="delivery_address"
             name="delivery_address"
             placeholder="delivery_address"
-            value={password}
+            value={delivery_address}
             onChange={(e) =>setDelivery_address(e.target.value)}
           />
           <label htmlFor="phone_number">Phone_number</label>
@@ -76,7 +76,7 @@ export default function RegisterPage() {
             type="phone_number"
             name="phone_number"
             placeholder="phone_number"
-            value={password}
+            value={phone_number}
             onChange={(e) =>setPhone_number(e.target.value)}
           />
           <button type="submit" className="primary">
