@@ -20,7 +20,7 @@ export default function LoginPage() {
         }
     
         try {
-           const {data} = await axios.post("/login", {
+           const {data} = await axios.post("/user/login", {
             email,
             password,
           });
@@ -40,9 +40,13 @@ export default function LoginPage() {
      }
 
     return (
+        
         <div className="mt-4 grow flex items-center justify-around">
-        <div className="mb-60">
-            <h1 className="text-4xl text-center mb-4">Login</h1>
+        <div className="mb-60">     
+            <h1 className="text-6Xl text-center mb-4 font-bold">WELCOME BACK</h1>
+            <p className="text-base text-green-700 font-normal leading-normal">
+            Discover a world of endless possibilities. Sign in to unlock exclusive deals and manage your shopping journey
+            </p>
             <form className="max-w-md mx-auto " onSubmit={handleLoginSubmit}>
                 <label htmlFor="">Email</label>
                 <input type="email" 

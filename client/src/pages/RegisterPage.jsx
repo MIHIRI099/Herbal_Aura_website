@@ -21,7 +21,7 @@ export default function RegisterPage() {
     }
 
     try {
-      await axios.post("/register", {
+      await axios.post("/user/register", {
         full_name,
         email,
         delivery_address,
