@@ -5,7 +5,7 @@ import { UserContext } from "../UserContext.jsx";
 export default function Header() {
     const {user} = useContext(UserContext);
     return(
-        <header className='p-2 flex justify-center' >
+        <header className=' flex justify-center p-4' >
           <a href="" className='flex items-center gap-1  text-green-200 padding-left: px-20'>
           <img src=".\images\HERBAL logo.png" alt="" className="w-14 h-14"  />
           <span className=' bottom-0 top-10 text-green-600 text-xl'>HERBAL AURA</span>
