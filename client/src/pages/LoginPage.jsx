@@ -49,7 +49,7 @@ export default function LoginPage() {
             <p className="text-base text-green-900 font-normal leading-normal">
             Discover a world of endless possibilities. Sign in to unlock exclusive deals and manage your shopping journey
             </p>
-            <form className="max-w-md mx-auto py-3 " onSubmit={handleLoginSubmit}>
+            <form className="max-w-md mx-auto py-8 " onSubmit={handleLoginSubmit}>
                 <label htmlFor="">Email</label>
                 <input type="email" 
                 placeholder="your@gmail.com" 

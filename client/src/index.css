@@ -47,4 +47,17 @@ nav {
     text-decoration: none;
     /* Add any additional styling for links */
 }
-
+.forms-container {
+    display: flex;
+    justify-content: center; /* Center the forms horizontally */
+    gap: 20px; /* Adjust the space between forms as needed */
+  }
+  
+  .form {
+    width: 30%; /* Adjust the width as needed */
+  }
+  .button-container {
+    justify-content: center; /* Center the buttons horizontally */
+    width: 40%; /* Set the width as needed */
+    display: flex; /* Center the button horizontally */
+  }
