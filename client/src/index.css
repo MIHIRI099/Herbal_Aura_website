@@ -18,6 +18,9 @@ button.primary {
     @apply p-2 w-full border border-transparent rounded-2xl shadow-sm text-white bg-green-900 hover:bg-green-600 focus:outline-none;
 }
 
+button.large {
+    @apply px-20 py-2 w-full border border-transparent rounded-2xl shadow-sm text-white bg-green-900 hover:bg-green-600 focus:outline-none;
+  }
 /* Navigation bar styles */
 nav {
     background-color: #003809; /* Replace with your desired background color */
@@ -57,7 +60,8 @@ nav {
     width: 30%; /* Adjust the width as needed */
   }
   .button-container {
-    justify-content: center; /* Center the buttons horizontally */
-    width: 40%; /* Set the width as needed */
-    display: flex; /* Center the button horizontally */
+    display: flex;
+    justify-content: center;
+  
   }
+  

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Header1 from "../components/Header1";
 
 export default function RegisterPage() {
   const [full_name, setName] = useState("");
@@ -48,11 +49,15 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="mt-4 grow flex items-center justify-around">
-      <div className="mb-60">
-        <h1 className="text-4xl text-center mb-4">REGISTER</h1>
+    <div className="w-full">
+    <Header1 />
+    <div className="mt-4 grow flex items-center justify-around bg-green-100 h-full">
+      <div className="mb-60 flex-grow">
+        <h1 className="text-3xl text-center mb-4 font-serif py-4 px-10">REGISTER</h1>
+        <p className="text-base text-green-900 font-normal leading-normal">
+          
+        </p>
         <div className="forms-container">
-          {/* First Form */}
           <form className="form" onSubmit={RegisterUser}>
             <label htmlFor="full_name">Name</label>
             <input
@@ -148,18 +153,23 @@ export default function RegisterPage() {
             />
           </form>
         </div>
-        <div className="button-container items-center">
-        <button type="submit" className="primary" onClick={RegisterUser}>
-          Register
+        <div className="button-container flex items-center px-20 ml-5">
+        <div className="button-container flex items-center  ">
+        <button type="submit" className="large" onClick={RegisterUser}>
+          Register                       
         </button>
-        </div>
-        <div className="text center  py-2 ml-20 text-gray-500">
-          Already a member?
-          <Link className="underline text-black" to={"/login"}>
-            Login
-          </Link>
-          </div>
-        </div>
       </div>
-  );
+      </div>
+      <div className="button-container flex items-center px-20 ">
+      <div className="text center py-2 ml-50 text-gray-500 px-20">
+        Already a member?
+        <Link className="underline text-black" to={"/login"}>
+          Login
+        </Link>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+);
 }
