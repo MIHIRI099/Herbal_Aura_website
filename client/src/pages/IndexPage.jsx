@@ -10,24 +10,133 @@ export default function IndexPage() {
       <Header />
       <NavigationBar />
       <ImageSlider />
-      
-      <div className="d-flex justify-content-center mt-4">
-        {/* Render the first ProductBox */}
-        <ProductBox
-          image="path/to/product1-image.jpg"
-          name="Product 1"
-          description="Description for Product 1 goes here."
-          price={29.99}
-        />
+      <div className="flex flex-wrap justify-center items-center mt-4">
+  {/* Render the first set of ProductBoxes */}
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/1.png"
+      name="Product 1"
+      description="Description for Product 1 goes here."
+      price={29.99}
+    />
+  </div>
 
-        {/* Render the second ProductBox */}
-        <ProductBox
-          image="path/to/product2-image.jpg"
-          name="Product 2"
-          description="Description for Product 2 goes here."
-          price={39.99}
-        />
-      </div>
+  {/* Render the second set of ProductBoxes */}
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/2.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+
+  {/* Repeat this pattern to create more ProductBoxes */
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/2.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+  {/* Add more ProductBoxes as needed */
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/3.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+  
+  {/* Repeat this pattern to create more ProductBoxes */
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/1.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+  {/* Add more ProductBoxes as needed */
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/2.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+   {/* Repeat this pattern to create more ProductBoxes */
+   <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/2.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+  {/* Add more ProductBoxes as needed */
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/3.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+  
+  {/* Repeat this pattern to create more ProductBoxes */
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/1.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+  {/* Add more ProductBoxes as needed */
+  <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/2.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+    {/* Add more ProductBoxes as needed */
+    <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/2.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+    {/* Add more ProductBoxes as needed */
+    <div className="flex justify-center items-center m-2">
+    <ProductBox
+      image="./images/2.png"
+      name="Product 2"
+      description="Description for Product 2 goes here."
+      price={39.99}
+    />
+  </div>
+  }
+</div>
+
+
+
     </div>
   );
 }
