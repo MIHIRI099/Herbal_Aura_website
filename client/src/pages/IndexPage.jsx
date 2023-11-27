@@ -3,6 +3,7 @@ import NavigationBar from '../components/NavigationBar';
 import ImageSlider from '../components/ImageSlider';
 import Header from '../components/Header';
 import ProductBox from '../components/ProductBox';
+import ProductFilter from '../components/ProductFilter';
 
 export default function IndexPage() {
   return (
@@ -10,6 +11,7 @@ export default function IndexPage() {
       <Header />
       <NavigationBar />
       <ImageSlider />
+      <ProductFilter />
       <div className="flex flex-wrap justify-center items-center mt-4">
   {/* Render the first set of ProductBoxes */}
   <div className="flex justify-center items-center m-2">
