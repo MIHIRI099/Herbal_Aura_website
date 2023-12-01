@@ -7,6 +7,14 @@ const ProductBox = ({ image, name, description, price }) => {
                 <h5 className='text-uppercase'>{name}</h5>
                 <p>{description}</p>
                 <p className='font-weight-bold'>Price: ${price}</p>
+                <div className="flex space-x-4">
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Buy Now
+                    </button>
+                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    Add to Cart
+                    </button>
+                </div>
             </div>
         </div>
     );
