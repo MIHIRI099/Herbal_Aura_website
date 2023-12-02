@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import axios from 'axios'
 import {  UserContextProvider } from "./UserContext.jsx";
+import CartPage from "./pages/CartPage.jsx"
 
 axios.defaults.baseURL = "http://localhost:9000";
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </UserContextProvider>
   );
