@@ -58,7 +58,9 @@ const CartPage = () => {
           <div className="mt-4 px-20 ">
             <p className="text-xl font-semibold text-red-600">Total: ${calculateTotal(cartItems).toFixed(2)}</p>
             <div className="flex  align-middle">
+            <Link to={'/checkout'} className='padding-left: px-5 rounded-m'>
             <button className="bg-green-800 text-white px-4 py-2 mt-4">Proceed to Checkout</button>
+            </Link>
             </div>
           </div>
         </div>
