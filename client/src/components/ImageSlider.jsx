@@ -13,15 +13,36 @@ function ImageSlider() {
 
   return (
     <Slider {...settings}>
-      <div>
+      <div style={{
+        backgroundImage: 'url("./images/h0.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: '150px', // Use the same height as your image
+        // Use the same width as your image
+      }}>
         <img src="./images/h0.png" alt="Slide 1" className="w-350 h-150" />
       </div>
-      <div>
+      <div style={{
+        backgroundImage: 'url("./images/imgs1c.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: '100px', // Use the same height as your image
+         // Use the same width as your image
+      }}>
         <img src="./images/imgs1c.png" alt="Slide 2" className="w-250 h-100" />
       </div>
-      <div>
+      <div style={{
+        backgroundImage: 'url("./images/imgs1c.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: '100px', // Use the same height as your image
+       // Use the same width as your image
+      }}>
         <img src="./images/imgs1c.png" alt="Slide 3" className="w-250 h-100" />
-      </div>  
+      </div>
       {/* Add more slides as needed */}
     </Slider>
   );

@@ -43,7 +43,7 @@ export default function LoginPage() {
     return (
       <div className="w-full">
         <Header1 />
-        <div className="grow flex flex-col items-center justify-around bg-green-100 h-full">
+        <div className="grow flex flex-col items-center justify-around bg-green-100">
         <div className="mb-60 flex-grow">     
             <h1 className="text-3xl text-center mb-4 font-serif py-4"> Welcome Back</h1>
             <p className="text-base text-green-900 font-normal leading-normal">
