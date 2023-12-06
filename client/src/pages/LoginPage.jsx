@@ -3,6 +3,7 @@ import {useContext, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../UserContext";
 import Header1 from "../components/Header1";
+import NavigationBar from "../components/NavigationBar";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -43,6 +44,7 @@ export default function LoginPage() {
     return (
       <div className="w-full">
         <Header1 />
+        <NavigationBar />
         <div className="grow flex flex-col items-center justify-around bg-green-100">
         <div className="mb-60 flex-grow">     
             <h1 className="text-3xl text-center mb-4 font-serif py-4"> Welcome Back</h1>
@@ -60,7 +62,9 @@ export default function LoginPage() {
                 placeholder="password" 
                 value={password} 
                 onChange={e => setPassword(e.target.value)} />
-                <button className="primary py-4">Login</button>
+                <div className="flex items-center justify-between py-4">
+                <button className="primary py-8">Login</button>
+                </div>
                 <div className="text center py-2 ml-12 text-gray-500">Do not have an account yet?  
                 <Link className="underline text-black" to={'/register'}> Register Now</Link>
                 </div>

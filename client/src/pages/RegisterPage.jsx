@@ -154,7 +154,7 @@ export default function RegisterPage() {
           </form>
         </div>
         <div className="button-container flex items-center px-20 ml-5">
-        <div className="button-container flex items-center  ">
+        <div className="button-container flex items-center py-4 ">
         <button type="submit" className="large" onClick={RegisterUser}>
           Register                       
         </button>
