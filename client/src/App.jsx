@@ -7,6 +7,7 @@ import axios from 'axios'
 import {  UserContextProvider } from "./UserContext.jsx";
 import CartPage from "./pages/CartPage.jsx"
 import CheckoutPage from "./pages/CheckOutpage.jsx"
+import ProductCatalogPage from "./components/ProductCatalogPage.jsx"
 
 axios.defaults.baseURL = "http://localhost:9000";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage/>} />
+        <Route path="/product/:id" component={ProductCatalogPage} />
       </Routes>
     </UserContextProvider>
   );

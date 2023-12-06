@@ -1,4 +1,7 @@
 /* eslint-disable react/prop-types */
+// ProductBox.jsx
+
+
 import { Link } from 'react-router-dom';
 
 const ProductBox = ({ id, image, name, description, price }) => {
