@@ -21,35 +21,7 @@ button.primary {
 button.large {
     @apply px-20 py-2 w-full border border-transparent rounded-2xl shadow-sm text-white bg-green-900 hover:bg-green-600 focus:outline-none;
   }
-/* Navigation bar styles */
-nav {
-    background-color: #003809; /* Replace with your desired background color */
-    padding: 1rem; /* Adjust padding as needed */
-}
 
-.navbar-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: right; /* Align horizontal */
-}
-
-.navbar-list li {
-    margin-left: 15px;
-    margin-right: 15px;
-     /* Adjust as needed */
-}
-
-.navbar-list li:last-child {
-    margin-right: 0;
-}
-
-.navbar-list li a {
-    color: #ffffff; /* Set your desired text color */
-    text-decoration: none;
-    /* Add any additional styling for links */
-}
 .forms-container {
     display: flex;
     justify-content: center; /* Center the forms horizontally */

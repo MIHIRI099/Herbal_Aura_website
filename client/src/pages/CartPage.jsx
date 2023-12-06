@@ -21,10 +21,10 @@ const CartPage = () => {
   
 
   return (
-    <div>
+    <div className=''>
       <Header />
       <NavigationBar />
-      <div className="flex py-4 px-2 rounded-m'">
+      <div className="flex  py-4 px-2 rounded-m'">
         <Link to={'/'} className='padding-left: px-5 rounded-m'>
           <div className='flex  items-center gap-1  border-green-400  py-1 px-2 text-green-200 bg bg-green-600 rounded-m'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

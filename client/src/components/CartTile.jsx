@@ -6,7 +6,7 @@
 
 const CartTile = ({ image, name, description, price, quantity, onRemove }) => {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', width: '60%', borderBottom: '1px solid #ddd', paddingLeft: '180px',paddingRight: '80px',paddingTop: '20px',paddingBottom: '20px' }}>
+    <div className="" style={{ display: 'flex', alignItems: 'center', width: '60%', borderBottom: '1px solid #ddd', paddingLeft: '180px',paddingRight: '80px',paddingTop: '20px',paddingBottom: '20px' }}>
       {/* Assuming there's an image property in the data */}
       <img src={image} alt={name} style={{ width: '80px', height: '80px', objectFit: 'cover', borderRadius: '8px', marginRight: '20px' }} />
       <div style={{ display: 'flex', flex: '1', justifyContent: 'space-between', alignItems: 'center', marginLeft: '20px' }}>
