@@ -18,7 +18,8 @@ function ImageSlider() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        height: '150px', // Use the same height as your image
+        height: '150px',
+         // Use the same height as your image
         // Use the same width as your image
       }}>
         <img src="./images/h0.png" alt="Slide 1" className=" h-100" />

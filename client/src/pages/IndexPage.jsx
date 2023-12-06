@@ -54,7 +54,7 @@ const IndexPage = () => {
       <Header />
       <NavigationBar />
       <ImageSlider />
-      <div className="flex ">
+      <div className="flex py-10 ">
         <div className="flex flex-wrap justify-left items-left mt-4">
           <ProductFilter categories={categories} onFilterChange={handleFilterChange} />
         </div>
