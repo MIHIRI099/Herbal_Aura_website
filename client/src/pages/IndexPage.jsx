@@ -1,5 +1,7 @@
+
 // IndexPage.jsx
 import { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import NavigationBar from '../components/NavigationBar';
 import ImageSlider from '../components/ImageSlider';
 import Header from '../components/Header';
@@ -32,7 +34,7 @@ const allProducts = [
     category: 'Category 3',
     image: '/images/img3.png',
   },
-  // Add more products as needed
+  // ... your product data ...
 ];
 
 const IndexPage = () => {
@@ -59,13 +61,15 @@ const IndexPage = () => {
           <ProductFilter categories={categories} onFilterChange={handleFilterChange} />
         </div>
         {filteredProducts.map((product) => (
-          <ProductBox
-            key={product.id}
-            image={product.image}
-            name={product.name}
-            description={product.description}
-            price={product.price}
-          />
+          <Link to={`/product/${product.id}`} key={product.id} className="no-underline">
+            {/* Move the Link component here */}
+            <ProductBox
+              image={product.image}
+              name={product.name}
+              description={product.description}
+              price={product.price}
+            />
+          </Link>
         ))}
       </div>
     </div>
