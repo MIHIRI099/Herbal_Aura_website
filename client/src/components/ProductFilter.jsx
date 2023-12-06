@@ -1,19 +1,26 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+// eslint-disable-next-line react/prop-types
+import { useState, useEffect } from 'react';
 
 const ProductFilter = ({ categories, onFilterChange }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
+  useEffect(() => {
+    // Pass the selected categories to the parent component when it changes
+    onFilterChange(selectedCategories);
+  }, [selectedCategories, onFilterChange]);
+
   const handleCategoryChange = (category) => {
     // Toggle the selected state of the category
-    setSelectedCategories((prevCategories) =>
-      prevCategories.includes(category)
-        ? prevCategories.filter((c) => c !== category)
-        : [...prevCategories, category]
-    );
-
-    // Pass the selected categories to the parent component
-    onFilterChange(selectedCategories);
+    setSelectedCategories((prevCategories) => {
+      if (prevCategories.includes(category)) {
+        // Remove the category if it's already selected
+        return prevCategories.filter((c) => c !== category);
+      } else {
+        // Add the category if it's not selected
+        return [...prevCategories, category];
+      }
+    });
   };
 
   return (
