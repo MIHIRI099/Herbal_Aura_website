@@ -69,13 +69,13 @@ const CartTile = ({ image, name, description, price, quantity, onRemove }) => {
           <p>{description}</p>
         </div>
         <div style={detailsStyle}>
-          <p className='font-weight-bold px-6'>Price: ${price.toFixed(2)}</p>
+          <p className='font-weight-bold px-6'>Price: Rs.{price.toFixed(2)}</p>
           <div className='px-6'>
             <button onClick={() => handleQuantityChange(-1)} className="bg-green-500 text-white h-6 px-4 rounded">-</button>
             <span className="mx-2">{localQuantity}</span>
             <button onClick={() => handleQuantityChange(1)} className="bg-green-500 text-white h-6 px-4 rounded">+</button>
           </div>
-          <p>Total: ${(price * localQuantity).toFixed(2)}</p>
+          <p>Total: Rs.{(price * localQuantity).toFixed(2)}</p>
           <div style={buttonStyle}>
             <button onClick={() => onRemove()} className="bg-red-700 hover:bg-red-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
               Remove

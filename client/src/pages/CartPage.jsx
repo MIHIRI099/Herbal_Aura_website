@@ -59,7 +59,7 @@ const CartPage = () => {
             <CartTile key={item.id} image={item.image} name={item.name} price={item.price} quantity={item.quantity} onRemove={() => handleRemoveItem(item.id)} />
           ))}
           <div className="mt-4 px-20 ">
-            <p className="text-xl font-semibold text-red-600 px-20">Total: ${calculateTotal(cartItems).toFixed(2)}</p>
+            <p className="text-xl font-semibold text-red-600 px-20">Total: Rs.{calculateTotal(cartItems).toFixed(2)}</p>
             <div className="flex  align-middle">
             <Link to={'/checkout'} className='padding-left: px-20 rounded-m'>
             <button className="bg-green-800 text-white px-4 py-2 mt-4">Proceed to Checkout</button>
