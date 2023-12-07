@@ -21,7 +21,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage/>} />
-        <Route path="/product/:id" element={ProductCatalogPage} />
+        <Route path="/product/:id" element={<ProductCatalogPage/>} />
       </Routes>
     </UserContextProvider>
   );
