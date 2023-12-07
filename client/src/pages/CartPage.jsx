@@ -6,8 +6,9 @@ import CartTile from '../components/CartTile'; // Import the CartTile component
 
 const CartPage = () => {
   const cartItems = [
-    { id: 1, name: 'Product 1', price: 29.99, quantity: 2 },
-    { id: 2, name: 'Product 2', price: 39.99, quantity: 1 },
+    { id: 1, image: '/images/img1.png',name: 'Product 1', price: 29.99, quantity: 2 },
+    { id: 2, image: '/images/img2.png',name: 'Product 2', price: 39.99, quantity: 1 },
+    { id: 3, image: '/images/img3.png',name: 'Product 3', price: 49.99, quantity: 1 },
   ];
 
   const calculateTotal = (items) => {
@@ -24,6 +25,7 @@ const CartPage = () => {
     <div className=''>
       <Header />
       <NavigationBar />
+      <div className="flex  py-4 px-2 rounded-m align-middle'">
       <div className="flex  py-4 px-2 rounded-m'">
         <Link to={'/'} className='padding-left: px-5 rounded-m'>
           <div className='flex  items-center gap-1  border-green-400  py-1 px-2 text-green-200 bg bg-green-600 rounded-m'>
@@ -33,6 +35,7 @@ const CartPage = () => {
             <span className=' bottom-0 top-10 text-white text-xl'>Continue shopping</span>
           </div>
         </Link>
+      </div>
       </div>
       <div>
         <hr
@@ -53,12 +56,12 @@ const CartPage = () => {
           </div>
           {/* Use CartTile component for each item */}
           {cartItems.map((item) => (
-            <CartTile key={item.id} name={item.name} price={item.price} quantity={item.quantity} onRemove={() => handleRemoveItem(item.id)} />
+            <CartTile key={item.id} image={item.image} name={item.name} price={item.price} quantity={item.quantity} onRemove={() => handleRemoveItem(item.id)} />
           ))}
           <div className="mt-4 px-20 ">
-            <p className="text-xl font-semibold text-red-600">Total: ${calculateTotal(cartItems).toFixed(2)}</p>
+            <p className="text-xl font-semibold text-red-600 px-20">Total: ${calculateTotal(cartItems).toFixed(2)}</p>
             <div className="flex  align-middle">
-            <Link to={'/checkout'} className='padding-left: px-5 rounded-m'>
+            <Link to={'/checkout'} className='padding-left: px-20 rounded-m'>
             <button className="bg-green-800 text-white px-4 py-2 mt-4">Proceed to Checkout</button>
             </Link>
             </div>

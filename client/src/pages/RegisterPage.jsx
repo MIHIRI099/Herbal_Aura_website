@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Header1 from "../components/Header1";
+import NavigationBar from "../components/NavigationBar";
 
 export default function RegisterPage() {
   const [full_name, setName] = useState("");
@@ -51,11 +52,11 @@ export default function RegisterPage() {
   return (
     <div className="w-full">
     <Header1 />
-    <div className="mt-4 grow flex items-center justify-around bg-green-100 h-full">
+    <NavigationBar />
+    <div className=" grow flex-col flex items-center justify-around bg-green-100 h-full">
       <div className="mb-60 flex-grow">
         <h1 className="text-3xl text-center mb-4 font-serif py-4 px-10">REGISTER</h1>
         <p className="text-base text-green-900 font-normal leading-normal">
-          
         </p>
         <div className="forms-container">
           <form className="form" onSubmit={RegisterUser}>
