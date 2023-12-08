@@ -19,7 +19,7 @@ const currentYear = new Date().getFullYear();
  
 export default function Footer() {
   return (
-    <footer className="bg-green-900 pt-8 relative w-full">
+    <footer className="bg-green-900 pt-1 relative w-full">
         <div>
           <hr
             style={{

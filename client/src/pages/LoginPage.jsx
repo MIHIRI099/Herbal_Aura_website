@@ -4,6 +4,7 @@ import axios from "axios";
 import { UserContext } from "../UserContext";
 import Header1 from "../components/Header1";
 import NavigationBar from "../components/NavigationBar";
+import Footer from '../components/footer';
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -71,6 +72,7 @@ export default function LoginPage() {
             </form>
         </div>
         </div>
+        <Footer />
         </div>
     )
 

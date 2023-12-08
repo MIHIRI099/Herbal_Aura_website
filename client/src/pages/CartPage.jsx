@@ -4,6 +4,7 @@ import NavigationBar from '../components/NavigationBar';
 import { Link } from "react-router-dom";
 import CartTile from '../components/CartTile';
 import { useState } from 'react'; // Import the CartTile component
+import Footer from '../components/footer';
 
 const CartPage = () => {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -86,6 +87,7 @@ const CartPage = () => {
         )}
         
       </div>
+      <Footer />
     </div>
   );
 };

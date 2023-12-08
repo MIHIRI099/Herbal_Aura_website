@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Header1 from "../components/Header1";
 import NavigationBar from "../components/NavigationBar";
+import Footer from '../components/footer';
 
 export default function RegisterPage() {
   const [full_name, setName] = useState("");
@@ -171,6 +172,7 @@ export default function RegisterPage() {
       </div>
     </div>
   </div>
+  <Footer />
   </div>
 );
 }
