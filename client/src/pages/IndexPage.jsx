@@ -7,6 +7,7 @@ import ImageSlider from '../components/ImageSlider';
 import Header from '../components/Header';
 import ProductBox from '../components/ProductBox';
 import ProductFilter from '../components/ProductFilter';
+import Footer from '../components/footer';
 
 // Sample product data
 const allProducts = [
@@ -83,6 +84,7 @@ const IndexPage = () => {
           </Link>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
