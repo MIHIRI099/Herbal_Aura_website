@@ -25,7 +25,8 @@ const CartPage = () => {
     <div className=''>
       <Header />
       <NavigationBar />
-      <div className="flex  py-4 px-2 rounded-m align-middle'">
+      <div className="bg-green-100">
+      <div className="flex  py-4 px-2 rounded-m align-middle">
       <div className="flex  py-4 px-2 rounded-m'">
         <Link to={'/'} className='padding-left: px-5 rounded-m'>
           <div className='flex  items-center gap-1  border-green-400  py-1 px-2 text-green-200 bg bg-green-600 rounded-m'>
@@ -68,6 +69,7 @@ const CartPage = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

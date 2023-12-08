@@ -21,7 +21,6 @@ const CheckoutPage = () => {
     <div>
       <Header />
       <NavigationBar />
-
       <div className="flex py-4 px-2 rounded-m'">
         <Link to={'/cart'}>
           <div className='flex items-center gap-1 border-green-400 py-1 px-2 text-green-200 bg bg-green-600 rounded-m'>
