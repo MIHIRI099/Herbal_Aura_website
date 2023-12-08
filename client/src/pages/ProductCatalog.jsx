@@ -88,7 +88,7 @@ const ProductCatalogPage = () => {
     <div>
       <Header />
       <NavigationBar />
-      <div className="bg-green-100">
+      <div className="bg-green-100 h-full">
         <div style={styles.container}>
           <div style={styles.productInfo}>
             <h2 style={styles.productName}>{selectedProduct.name}</h2>

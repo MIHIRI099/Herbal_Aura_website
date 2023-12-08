@@ -8,7 +8,7 @@ const CartTile = ({ image, name, description, price, quantity, onRemove }) => {
     alignItems: 'center',
     width: '60%',
     borderRadius: '20px', // Circular corners
-    backgroundColor: '#f0f0f0', // Fill color
+    backgroundColor: '#ffffff', // Fill color
     border: '1px solid #ddd',
     marginLeft: '150px',
     padding: '20px',
