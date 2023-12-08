@@ -43,11 +43,11 @@ export default function LoginPage() {
      }
 
     return (
-      <div className="w-full">
+      <div className="w-full h-full">
         <Header1 />
         <NavigationBar />
-        <div className="grow flex flex-col items-center justify-around bg-green-100">
-        <div className="mb-60 flex-grow">     
+        <div className="grow flex flex-col items-center justify-around bg-green-100 h-full">
+        <div className="mb-60 flex-grow h-full">     
             <h1 className="text-3xl text-center mb-4 font-serif py-4"> Welcome Back</h1>
             <p className="text-base text-green-900 font-normal leading-normal">
             Discover a world of endless possibilities. Sign in to unlock exclusive deals and manage your shopping journey

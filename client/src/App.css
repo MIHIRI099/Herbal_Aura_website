@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    height: 100vh !important;
 }
 .slider-container {
     width: 95%;

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import NavigationBar from '../components/NavigationBar';
+import Footer from '../components/footer';
 // Import your CartTile component
 
 const CheckoutPage = () => {
@@ -18,7 +19,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div>
+    <div className='h-screen'>
       <Header />
       <NavigationBar />
       <div className="flex py-4 px-2 rounded-m'">
@@ -32,7 +33,7 @@ const CheckoutPage = () => {
         </Link>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center h-screen">
         {/* Left Side */}
         <div className="w-2/3 p-4">
           <h1 className="text-xl font-semibold mb-4">Checkout</h1>
@@ -100,6 +101,7 @@ const CheckoutPage = () => {
         {/* Right Side - Cart Summary */}
         
       </div>
+      <Footer />
     </div>
   );
 };

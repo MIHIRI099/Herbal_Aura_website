@@ -3,15 +3,15 @@ import { Typography } from "@material-tailwind/react";
 const LINKS = [
   {
     title: "Product",
-    items: ["Overview", "Features", "Solutions", "Tutorials"],
+    items: ["Overview", "Features"],
   },
   {
     title: "Company",
-    items: ["About us", "Careers", "Press", "News"],
+    items: ["About us", "News"],
   },
   {
     title: "Resource",
-    items: ["Blog", "Newsletter", "Events", "Help center"],
+    items: ["Blog", "Help center"],
   },
 ];
  
@@ -19,7 +19,7 @@ const currentYear = new Date().getFullYear();
  
 export default function Footer() {
   return (
-    <footer className="bg-green-900 pt-1 relative w-full">
+    <footer className="bg-green-900 pt-1 relative w-full mt-auto">
         <div>
           <hr
             style={{
