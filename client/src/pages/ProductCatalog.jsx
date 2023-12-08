@@ -2,6 +2,8 @@
 import Header from '../components/Header';
 import NavigationBar from '../components/NavigationBar';
 import { useParams } from 'react-router-dom';
+ // Import the StarIcon from Heroicons
+import {StarIcon} from "@heroicons/react/24/solid"
 
 const ProductCatalogPage = () => {
   const { id } = useParams();
@@ -121,50 +123,59 @@ const ProductCatalogPage = () => {
     <div>
       <Header />
       <NavigationBar />
-      <div className=" h-full">
-        <div style={styles.container}>
-          <div style={styles.productInfo}>
-            <h2 style={styles.productName}>{selectedProduct.name}</h2>
-            
-            <div style={{float: 'left',width: '50%',height: '60%',boxSizing: 'border-box',padding: '20px',}}>
-            <div className="flex flex-wrap  py-10">
-            <img
-              src={selectedProduct.image}
-              alt={selectedProduct.name}
-              style={styles.productImage}
-            />
+      <div className="flex items-center justify-center bg-gray-100 h-full">
+        <div className="bg-white p-8 rounded-lg shadow-md w-full h-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="w-full">
+              <img
+                src={selectedProduct.image}
+                alt={selectedProduct.name}
+                className="w-full h-auto rounded-lg shadow-md"  // Adjust the styling here
+                style={{ maxHeight: '700px' }}  // Set a maximum height for the image
+              />
             </div>
-            </div>
-            <div
-        style={{float: 'left',width: '50%',boxSizing: 'border-box',padding: '20px',height: '60%',border: '1px solid #ccc',}} >
-            <p style={styles.productDescription}>{selectedProduct.description}</p>
-            <p style={styles.productPrice}>Price: ${selectedProduct.price.toFixed(2)}</p>
-            <p style={styles.productCategory}>Category: {selectedProduct.category}</p>
-          
-          <hr style={styles.hr} />
-          {/* Reviews Section */}
-          <div style={styles.reviewsSection}>
-            <h3 style={styles.reviewsTitle}>Customer Reviews</h3>
-            {filteredReviews.map((review) => (
-              <div key={review.id} style={styles.reviewItem}>
-                <p style={styles.reviewUser}>{review.user}</p>
-                <p style={styles.reviewRating}>Rating: {review.rating} stars</p>
-                <p style={styles.reviewComment}>{review.comment}</p>
+            <div className="w-full">
+              <h2 className="text-3xl font-semibold mb-4">{selectedProduct.name}</h2>
+              <p className="text-gray-700 mb-4">{selectedProduct.description}</p>
+              <p className="text-green-600 text-lg font-semibold mb-4">
+                Price: ${selectedProduct.price.toFixed(2)}
+              </p>
+              <p className="text-gray-700 text-lg mb-4">
+                Category: {selectedProduct.category}
+              </p>
+              <hr className="my-4" />
+
+              {/* Reviews Section */}
+              <div>
+                <h3 className="text-2xl font-semibold mb-2">Customer Reviews</h3>
+                {filteredReviews.map((review) => (
+                  <div key={review.id} className="mb-4">
+                    <p className="text-gray-800 font-semibold">{review.user}</p>
+                    <div className="flex items-center">
+                      <StarIcon className="h-5 w-5 text-yellow-500 mr-1" />
+                      <p className="text-gray-600">{review.rating} stars</p>
+                    </div>
+                    <p className="text-gray-700">{review.comment}</p>
+                  </div>
+                ))}
+                <p className="text-gray-800">
+                  Average Rating: {averageRating.toFixed(1)} stars
+                </p>
               </div>
-            ))}
-            <p style={styles.averageRating}>Average Rating: {averageRating.toFixed(1)} stars</p>
+              
+
+              <div className="flex space-x-5 mt-8">
+                <button className="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-md">
+                  Buy Now
+                </button>
+                <button className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md">
+                  Add to Cart
+                </button>
+              </div>
+              
+            </div>
           </div>
-          <div className="px-20 flex space-x-5">
-                    <button className="bg-red-700 hover:bg-red-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
-                        Buy Now
-                    </button>
-                    <button className="bg-green-800 hover:bg-green-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
-                        Add to Cart
-                    </button>
-                </div>
         </div>
-        </div>
-      </div>
       </div>
     </div>
   );
