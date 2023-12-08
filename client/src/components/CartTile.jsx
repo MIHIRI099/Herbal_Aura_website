@@ -2,7 +2,14 @@
 
 import  { useState } from 'react';
 
-const CartTile = ({ image, name, description, price, quantity, onRemove }) => {
+const CartTile = ({ id, image, name, description, price, quantity, onRemove, onToggleCheckout }) => {
+  const [isSelected, setIsSelected] = useState(true);
+  const handleCheckboxChange = () => {
+    setIsSelected(!isSelected);
+    onToggleCheckout(id, !isSelected); // Notify the parent component about the selection change
+  };
+ 
+ 
   const tileContainerStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -62,6 +69,21 @@ const CartTile = ({ image, name, description, price, quantity, onRemove }) => {
   return (
     <div style={tileContainerStyle }>
       {/* Assuming there's an image property in the data */}
+      <div className="flex items-center justify-center px-5 ">
+      <input
+        type="checkbox"
+        checked={isSelected}
+        onChange={handleCheckboxChange}
+        style={{
+          height: '15px',
+          width: '15px',
+          color:'green', 
+          outlineColor:'green',
+          // Add spacing to the right of the checkbox
+          // Add any additional inline styles here
+        }}
+      />
+      </div>
       <img src={image} alt={name} style={imageStyle} />
       <div style={contentStyle}>
         <div style={textStyle}>

@@ -11,34 +11,31 @@ import ProductFilter from '../components/ProductFilter';
 // Sample product data
 const allProducts = [
   {
-    id: 1,
-    name: 'Product 1',
-    description: 'Description for Product 1',
-    price: 19.99,
-    category: 'Category 1',
-    image: '/images/img1.png',
+    id: 1, image: '/images/img1.png',name: 'Herbal oil product', price: 29.99,  category: 'Hair oil products',
   },
   {
-    id: 2,
-    name: 'Product 2',
-    description: 'Description for Product 2',
-    price: 29.99,
-    category: 'Category 2',
-    image: '/images/img2.png',
+    id: 2, image: '/images/img2.png',name: 'Nutrition product', price: 39.99,  category: 'Wellness products',
   },
   {
-    id: 3,
-    name: 'Product 3',
-    description: 'Description for Product 3',
-    price: 29.99,
-    category: 'Category 3',
-    image: '/images/img3.png',
+    id: 3, image: '/images/img3.png',name: 'Hare care product', price: 49.99,  category: 'Hair care products',
+  },
+  {
+    id: 4, image: '/images/img4.png',name: 'Immunity Boosters', price: 59.99,  category: 'Wellness products',
+  },
+  {
+    id: 5, image: '/images/img5.png',name: 'Face wash', price: 39.99,  category: 'Skin care products',
+  },
+  {
+    id: 6, image: '/images/img6.png',name: 'Face cream', price: 89.99, category:'Skin care products',
+  },
+  {
+    id: 7, image: '/images/img7.png',name: 'Body wash', price: 49.99,category:'Skin care products',
   },
   // ... your product data ...
 ];
 
 const IndexPage = () => {
-  const categories = ['Category 1', 'Category 2', 'Category 3'];
+  const categories = ['Wellness products', 'Hair care products', 'Skin care products', 'Hair oil products'];
   const [filteredProducts, setFilteredProducts] = useState([...allProducts]);
 
   const [filteredCategories, setFilteredCategories] = useState([]);  // Add this line
@@ -70,7 +67,7 @@ const IndexPage = () => {
       <Header />
       <NavigationBar />
       <ImageSlider />
-      <div className="flex py-10 ">
+      <div className="flex flex-wrap justify-left items-left py-10">
         <div className="flex flex-wrap justify-left items-left mt-4">
           <ProductFilter categories={categories} onFilterChange={handleFilterChange} />
         </div>

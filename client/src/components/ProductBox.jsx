@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 const ProductBox = ({ image, name, description, price }) => {
     return (
-        <div style={{ width: "200px", height: "300px", border: "2px solid #000", borderRadius: "8px" }} className='d-flex flex-column mx-2 rounded zoom bg-light '>
+        <div  className='px-4 py-4 '>
+        <div style={{ width: "200px", height: "300px", border: "2px solid #000", borderRadius: "8px"  }} className='d-flex flex-column mx-2 rounded zoom bg-light '>
             <img src={image} alt={name} style={{ width: "100%", height: "150px", objectFit: "cover", borderRadius: "8px 8px 0 0" }} />
             <div className='p-2'>
                 <h5 className='text-uppercase'>{name}</h5>
@@ -16,6 +17,7 @@ const ProductBox = ({ image, name, description, price }) => {
                     </button>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
