@@ -92,7 +92,7 @@ const IndexPage = () => {
       <Header />
       <NavigationBar />
       <ImageSlider />
-      <div className="flex justify-left items-left py-10 bg-gray-100">
+      <div className="flex justify-left items-left py-10 bg-gray-50">
         <div  style={{float: 'left',width: '35%', height :'70%',boxSizing: 'border-box',padding: '20px',border: '1px solid #ccc',}}className="flex justify-left items-left mt-4 w-35">
           <ProductFilter categories={categories} onFilterChange={handleFilterChange} />
         </div>
