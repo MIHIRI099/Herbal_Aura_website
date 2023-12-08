@@ -2,13 +2,16 @@
 import Header from '../components/Header';
 import NavigationBar from '../components/NavigationBar';
 import { Link } from "react-router-dom";
-import CartTile from '../components/CartTile'; // Import the CartTile component
+import CartTile from '../components/CartTile';
+import { useState } from 'react'; // Import the CartTile component
 
 const CartPage = () => {
+  const [selectedItems, setSelectedItems] = useState([]);
   const cartItems = [
-    { id: 1, image: '/images/img1.png',name: 'Product 1', price: 29.99, quantity: 2 },
-    { id: 2, image: '/images/img2.png',name: 'Product 2', price: 39.99, quantity: 1 },
-    { id: 3, image: '/images/img3.png',name: 'Product 3', price: 49.99, quantity: 1 },
+    { id: 1, image: '/images/img1.png',name: 'Herbal oil product', price: 29.99, quantity: 2 },
+    { id: 2, image: '/images/img2.png',name: 'Nutrition product', price: 39.99, quantity: 1 },
+    { id: 3, image: '/images/img3.png',name: 'Hare care product', price: 49.99, quantity: 1 },
+  
   ];
 
   const calculateTotal = (items) => {
@@ -20,7 +23,13 @@ const CartPage = () => {
     console.log(`Remove item with ID ${itemId}`);
   };
   
-
+  const handleToggleCheckout = (itemId, isSelected) => {
+    if (isSelected) {
+      setSelectedItems([...selectedItems, itemId]);
+    } else {
+      setSelectedItems(selectedItems.filter((id) => id !== itemId));
+    }
+  };
   return (
     <div className='bg-green-50'>
       <div className=''>
@@ -59,7 +68,9 @@ const CartPage = () => {
             </div>
             {/* Use CartTile component for each item */}
             {cartItems.map((item) => (
-              <CartTile key={item.id} image={item.image} name={item.name} price={item.price} quantity={item.quantity} onRemove={() => handleRemoveItem(item.id)} />
+              <CartTile key={item.id} image={item.image} name={item.name} price={item.price} quantity={item.quantity} onRemove={() => handleRemoveItem(item.id)} 
+                 onToggleCheckout={handleToggleCheckout}
+              />
             ))}
             <div className="mt-4 px-20 ">
               <p className="text-xl font-semibold text-red-600 px-20">Total: Rs.{calculateTotal(cartItems).toFixed(2)}</p>

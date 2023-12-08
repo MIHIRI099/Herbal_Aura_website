@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 
 const ProductFilter = ({ categories, onFilterChange }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -24,7 +24,8 @@ const ProductFilter = ({ categories, onFilterChange }) => {
   };
 
   return (
-    <div className="flex flex-col items-start bg-green-50 p-4">
+    <div className="flex p-4">
+    <div className="flex flex-col items-start bg-green-50 p-8 outline-double ">
       <h2 className="text-lg text-green-800 font-semibold mb-2">Filter by Category</h2>
       {categories.map((category) => (
         <label key={category} className="flex items-center mb-2">
@@ -37,6 +38,7 @@ const ProductFilter = ({ categories, onFilterChange }) => {
           {category}
         </label>
       ))}
+    </div>
     </div>
   );
 };
