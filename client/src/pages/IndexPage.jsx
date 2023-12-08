@@ -68,10 +68,11 @@ const IndexPage = () => {
       <Header />
       <NavigationBar />
       <ImageSlider />
-      <div className="flex flex-wrap justify-left items-left py-10">
-        <div className="flex flex-wrap justify-left items-left mt-4">
+      <div className="flex justify-left items-left py-10">
+        <div className="flex justify-left items-left mt-4 ">
           <ProductFilter categories={categories} onFilterChange={handleFilterChange} />
         </div>
+        <div className='flex flex-wrap'>
         {filteredProducts.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id} className="no-underline">
             {/* Move the Link component here */}
@@ -83,6 +84,7 @@ const IndexPage = () => {
             />
           </Link>
         ))}
+        </div>
       </div>
       <Footer />
     </div>
