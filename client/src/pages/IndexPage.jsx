@@ -41,14 +41,28 @@ const IndexPage = () => {
   const categories = ['Category 1', 'Category 2', 'Category 3'];
   const [filteredProducts, setFilteredProducts] = useState([...allProducts]);
 
-  const handleFilterChange = (selectedCategories) => {
-    const filteredProducts = allProducts.filter((product) =>
-      selectedCategories.length === 0
-        ? true
-        : selectedCategories.includes(product.category)
-    );
+  const [filteredCategories, setFilteredCategories] = useState([]);  // Add this line
 
-    setFilteredProducts(filteredProducts);
+  // ... (rest of your component)
+
+  const handleFilterChange = (selectedCategories) => {
+    // Check if the selectedCategories have changed
+    if (!arraysAreEqual(selectedCategories, filteredCategories)) {
+      // If changed, update the state
+      setFilteredCategories(selectedCategories);
+
+      // Update the filteredProducts based on the selectedCategories
+      const filteredProducts = allProducts.filter((product) =>
+        selectedCategories.length === 0 || selectedCategories.includes(product.category)
+      );
+
+      setFilteredProducts(filteredProducts);
+    }
+  };
+
+  // Helper function to check if two arrays are equal
+  const arraysAreEqual = (array1, array2) => {
+    return array1.length === array2.length && array1.every((value, index) => value === array2[index]);
   };
 
   return (

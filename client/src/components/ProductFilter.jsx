@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ProductFilter = ({ categories, onFilterChange }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);

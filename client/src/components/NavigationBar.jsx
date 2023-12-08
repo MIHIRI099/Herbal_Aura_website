@@ -1,6 +1,9 @@
 import  { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 export default function NavigationBar() {
   const [activeTab, setActiveTab] = useState('');
+  const location = useLocation();
+  console.log(location);
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
@@ -8,7 +11,7 @@ export default function NavigationBar() {
   return (
     <nav className="flex bg-green-800 border-b">
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400  ${activeTab === 'home' ? 'bg-green-200 text-green-800' : ''}`}
+        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location.pathname === '/' ? 'bg-green-200 text-green-800' : ''}`}
         href={'/'}
         onClick={() => handleTabClick('home')}
       >
@@ -44,7 +47,7 @@ export default function NavigationBar() {
         Prescription
       </a>
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400  ${activeTab === 'cart' ? 'bg-green-200 text-green-800' : ''}`}
+        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location.pathname === '/cart' ? 'bg-green-200 text-green-800' : ''}`}
         href={'/cart'}
         onClick={() => handleTabClick('cart')}
       >
