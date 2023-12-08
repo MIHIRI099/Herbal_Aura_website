@@ -50,7 +50,8 @@ const ProductCatalogPage = () => {
     productName: {
       fontSize: '24px',
       marginBottom: '10px',
-      
+      textAlign: 'center',
+
     },
     productImage: {
       width: '100%', // Make the image fill its container
