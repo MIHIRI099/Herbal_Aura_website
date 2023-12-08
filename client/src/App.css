@@ -1,0 +1,32 @@
+/* ImageSlider.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.slider-container {
+    width: 95%;
+    margin: 0 auto; /* Center the container */
+  }
+  
+  .slider-item {
+    height: 425px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  .slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+    .slider-item img:hover {
+        transform: scale(1.1);
+    }

@@ -24,8 +24,8 @@ const ProductFilter = ({ categories, onFilterChange }) => {
   };
 
   return (
-    <div className="flex flex-col items-start bg-green-100 p-4">
-      <h2 className="text-lg font-semibold mb-2">Filter by Category</h2>
+    <div className="flex flex-col items-start bg-green-50 p-4">
+      <h2 className="text-lg text-green-800 font-semibold mb-2">Filter by Category</h2>
       {categories.map((category) => (
         <label key={category} className="flex items-center mb-2">
           <input
