@@ -35,14 +35,14 @@ function ImageSlider() {
         <img src="./images/imgs1c.png" alt="Slide 2" className=" h-100" />
       </div>
       <div style={{
-        backgroundImage: 'url("./images/imgs1c.png")',
+        backgroundImage: 'url("./images/h2.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         height: '150px', // Use the same height as your image
        // Use the same width as your image
       }}>
-        <img src="./images/imgs1c.png" alt="Slide 3" className=" h-100" />
+        <img src="./images/h2.png" alt="Slide 3" className=" h-100" />
       </div>
       {/* Add more slides as needed */}
     </Slider>
