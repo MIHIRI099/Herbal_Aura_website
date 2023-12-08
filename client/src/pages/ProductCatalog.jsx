@@ -111,7 +111,6 @@ const ProductCatalogPage = () => {
             <p style={styles.productCategory}>Category: {selectedProduct.category}</p>
           </div>
           <hr style={styles.hr} />
-
           {/* Reviews Section */}
           <div style={styles.reviewsSection}>
             <h3 style={styles.reviewsTitle}>Customer Reviews</h3>
@@ -123,17 +122,16 @@ const ProductCatalogPage = () => {
               </div>
             ))}
             <p style={styles.averageRating}>Average Rating: {averageRating.toFixed(1)} stars</p>
-          < <div className="flex space-x-0.5">
+          </div>
+          <div className="flex space-x-0.5">
                     <button className="bg-red-700 hover:bg-red-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
                         Buy Now
                     </button>
                     <button className="bg-green-800 hover:bg-green-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
                         Add to Cart
                     </button>
-                </div>/div>
-
+                </div>
         </div>
-
       </div>
       </div>
     </div>
