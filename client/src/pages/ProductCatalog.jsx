@@ -44,12 +44,13 @@ const ProductCatalogPage = () => {
       padding: '20px',
     },
     productInfo: {
-      textAlign: 'center',
+      textAlign: 'left',
       
     },
     productName: {
       fontSize: '24px',
       marginBottom: '10px',
+      
     },
     productImage: {
       width: '100%', // Make the image fill its container
@@ -60,6 +61,8 @@ const ProductCatalogPage = () => {
     },
     productDescription: {
       fontSize: '16px',
+      fontWeight: 'bold',
+      fontColor:'green',
       marginBottom: '10px',
     },
     productPrice: {
@@ -93,23 +96,26 @@ const ProductCatalogPage = () => {
     <div>
       <Header />
       <NavigationBar />
-      <div className="bg-green-100 h-full">
+      <div className=" h-full">
         <div style={styles.container}>
           <div style={styles.productInfo}>
             <h2 style={styles.productName}>{selectedProduct.name}</h2>
-            <div style={{float: 'left',width: '50%',boxSizing: 'border-box',padding: '20px',border: '1px solid #ccc',}}>
+            
+            <div style={{float: 'left',width: '50%',height: '60%',boxSizing: 'border-box',padding: '20px',}}>
+            <div className="flex flex-wrap  py-10">
             <img
               src={selectedProduct.image}
               alt={selectedProduct.name}
               style={styles.productImage}
             />
             </div>
+            </div>
             <div
-        style={{float: 'left',width: '50%',boxSizing: 'border-box',padding: '20px',border: '1px solid #ccc',}} >
+        style={{float: 'left',width: '50%',boxSizing: 'border-box',padding: '20px',height: '60%',border: '1px solid #ccc',}} >
             <p style={styles.productDescription}>{selectedProduct.description}</p>
             <p style={styles.productPrice}>Price: ${selectedProduct.price.toFixed(2)}</p>
             <p style={styles.productCategory}>Category: {selectedProduct.category}</p>
-          </div>
+          
           <hr style={styles.hr} />
           {/* Reviews Section */}
           <div style={styles.reviewsSection}>
@@ -123,7 +129,7 @@ const ProductCatalogPage = () => {
             ))}
             <p style={styles.averageRating}>Average Rating: {averageRating.toFixed(1)} stars</p>
           </div>
-          <div className="flex space-x-0.5">
+          <div className="px-20 flex space-x-5">
                     <button className="bg-red-700 hover:bg-red-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
                         Buy Now
                     </button>
@@ -131,6 +137,7 @@ const ProductCatalogPage = () => {
                         Add to Cart
                     </button>
                 </div>
+        </div>
         </div>
       </div>
       </div>
