@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -27,7 +27,7 @@ function ImageSlider() {
           <img src="./images/imgs1c.png" alt="Slide 2" />
         </div>
         <div className="slider-item">
-          <img src="./images/imgs1c.png" alt="Slide 3" />
+          <img src="./images/h2.png" alt="Slide 3" />
         </div>
         {/* Add more slides as needed */}
       </Slider>
