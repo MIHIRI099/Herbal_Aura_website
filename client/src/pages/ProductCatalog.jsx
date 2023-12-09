@@ -63,49 +63,6 @@ const ProductCatalogPage = () => {
   if (!selectedProduct) {
     return <div>Product not found</div>;
   }
-
-
-  const styles = {
-    container: {
-      maxWidth: '800px',
-      margin: '0 auto',
-      padding: '20px',
-    },
-    productInfo: {
-      textAlign: 'left',
-      
-    },
-    productName: {
-      fontSize: '24px',
-      marginBottom: '10px',
-      textAlign: 'center',
-
-    },
-    productImage: {
-      width: '100%', // Make the image fill its container
-      maxHeight: '400px', // Set a maximum height for the image
-      objectFit: 'cover', // Ensure the image covers the container
-      marginBottom: '10px',
-
-    },
-    productDescription: {
-      fontSize: '16px',
-      fontWeight: 'bold',
-      fontColor:'green',
-      marginBottom: '10px',
-    },
-    productPrice: {
-      fontSize: '18px',
-      marginBottom: '10px',
-    },
-    productCategory: {
-      fontSize: '16px',
-    },
-    hr: {
-      border: '1px solid #ccc',
-      margin: '20px 0',
-    },
-  };
   
 
   const reviews = [
