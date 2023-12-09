@@ -8,6 +8,11 @@ import {  UserContextProvider } from "./UserContext.jsx";
 import CartPage from "./pages/CartPage.jsx"
 import CheckoutPage from "./pages/CheckOutpage.jsx"
 import ProductCatalogPage from "./pages/ProductCatalog.jsx"
+import WellnessPage from "./pages/WellnessPage.jsx"
+import HairCarePage from "./pages/HairCarePage.jsx"
+import HairOilPage from "./pages/HairOilpage.jsx"
+import SkinCarePage from "./pages/SkinCarePage.jsx"
+
 
 axios.defaults.baseURL = "http://localhost:9000";
 
@@ -22,6 +27,11 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage/>} />
         <Route path="/product/:id" element={<ProductCatalogPage/>} />
+        <Route path="/wellness" element={<WellnessPage/>} />
+        <Route path="/haircare" element={<HairCarePage/>} />
+        <Route path="/hairoil" element={<HairOilPage/>} />
+        <Route path="/skincare" element={<SkinCarePage/>} />
+
       </Routes>
     </UserContextProvider>
   );

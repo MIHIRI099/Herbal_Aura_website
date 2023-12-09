@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import  { useState } from 'react';
 import {  useLocation } from 'react-router-dom';
 export default function NavigationBar() {
@@ -18,33 +19,33 @@ export default function NavigationBar() {
         Home
       </a>
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400  ${activeTab === 'wellness' ? 'bg-green-200 text-green-800' : ''}`}
-        href="#wellness"
+        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location.pathname === '/wellness' ? 'bg-green-200 text-green-800' : ''}`}
+        href={'/wellness'}
         onClick={() => handleTabClick('wellness')}
       >
         Wellness Products
       </a>
    
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400  ${activeTab === 'hair-products' ? 'bg-green-200 text-green-800' : ''}`}
-        href="#hair-products"
-        onClick={() => handleTabClick('hair-products')}
+        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location === '/haircare' ? 'bg-green-200 text-green-800' : ''}`}
+        href="/haircare"
+        onClick={() => handleTabClick('haircare')}
       >
-        Hair Products
+        Hair Care Products
       </a>
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400  ${activeTab === 'skin-products' ? 'bg-green-200 text-green-800' : ''}`}
-        href="#skin-products"
-        onClick={() => handleTabClick('skin-products')}
+        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location === '/skincare' ? 'bg-green-200 text-green-800' : ''}`}
+        href="/skincare"
+        onClick={() => handleTabClick('skincare')}
       >
-        Skin Products
+        Skin Care Products
       </a>
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400 f ${activeTab === 'prescription' ? 'bg-green-200 text-green-800' : ''}`}
-        href="#prescription"
-        onClick={() => handleTabClick('prescription')}
+        className={`px-10 py-2 text-green-200 hover:text-green-400 f ${location === '/hairoil' ? 'bg-green-200 text-green-800' : ''}`}
+        href="/hairoil"
+        onClick={() => handleTabClick('hairoil')}
       >
-        Prescription
+        Hair Oil Products
       </a>
       <a
         className={`px-10 py-2 text-green-200 hover:text-green-400  ${location.pathname === '/cart' ? 'bg-green-200 text-green-800' : ''}`}
