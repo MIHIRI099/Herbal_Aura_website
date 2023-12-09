@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 // ProductCatalogPage.js
 import Header from '../components/Header';
 import NavigationBar from '../components/NavigationBar';
 import { useParams } from 'react-router-dom';
  // Import the StarIcon from Heroicons
 import {StarIcon} from "@heroicons/react/24/solid"
+import { Link } from 'react-router-dom';
 
 const ProductCatalogPage = () => {
   const { id } = useParams();
@@ -124,7 +126,17 @@ const ProductCatalogPage = () => {
       <Header />
       <NavigationBar />
       <div className="flex items-center justify-center bg-gray-100 h-full">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full h-full">
+      <div className="justify-top w-1/8 px-5">
+            <Link to={'/'} className='padding-left: px-5 rounded-m'>
+              <div className='flex  items-center gap-1  border-green-400  py-1 px-2 text-green-200 bg bg-green-600 rounded-m'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+                </svg>
+                <span className=' bottom-0 top-10 text-white text-xl'>Continue shopping</span>
+              </div>
+            </Link>
+          </div>
+        <div className="bg-white p-8 rounded-lg shadow-md w-full h-full justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="w-full">
               <img
