@@ -83,11 +83,11 @@ const ProductCatalogPage = () => {
       <div className="flex items-center justify-center bg-gray-100 h-full">
         <div className="bg-white p-8 rounded-lg shadow-md w-full h-full justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="w-full">
+            <div className="w-11/12">
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.name}
-                className="w-full h-auto rounded-lg shadow-md"  // Adjust the styling here
+                className="w-full h-auto rounded-lg shadow-s"  // Adjust the styling here
                 style={{ maxHeight: '700px' }}  // Set a maximum height for the image
               />
             </div>
@@ -122,10 +122,10 @@ const ProductCatalogPage = () => {
               
 
               <div className="flex space-x-5 mt-8">
-                <button className="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-md">
+                <button className="bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded-md">
                   Buy Now
                 </button>
-                <button className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md">
+                <button className="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-md">
                   Add to Cart
                 </button>
               </div>

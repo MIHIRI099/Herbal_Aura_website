@@ -34,10 +34,10 @@ const ProductBox = ({ image, name, description, price, productId }) => {
           <p>{description}</p>
           <p className='font-weight-bold'>Price: ${price}</p>
           <div className="flex mt-3 space-x-0.5">
-            <button onClick={handleBuyNow} className="bg-red-700 hover:bg-red-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
+            <button onClick={handleBuyNow} className="bg-green-800 hover:bg-red-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
               Buy Now
             </button>
-            <button onClick={handleAddToCart} className="bg-green-800 hover:bg-green-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
+            <button onClick={handleAddToCart} className="bg-red-700 hover:bg-green-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
               Add to Cart
             </button>
           </div>

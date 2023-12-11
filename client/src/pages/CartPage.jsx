@@ -1,27 +1,27 @@
 
-import Header from '../components/Header';
-import NavigationBar from '../components/NavigationBar';
 import { Link } from "react-router-dom";
 import CartTile from '../components/CartTile';
 import { useState } from 'react'; // Import the CartTile component
-import Footer from '../components/footer';
+
 
 const CartPage = () => {
   const [selectedItems, setSelectedItems] = useState([]);
-  const cartItems = [
-    { id: 1, image: '/images/img1.png',name: 'Herbal oil product', price: 29.99, quantity: 2 },
-    { id: 2, image: '/images/img2.png',name: 'Nutrition product', price: 39.99, quantity: 1 },
-    { id: 3, image: '/images/img3.png',name: 'Hare care product', price: 49.99, quantity: 1 },
-  
-  ];
-
+  const [cartItems, setCartItems] = useState([
+    { id: 1, image: '/images/img1.png', name: 'Herbal oil product', price: 29.99, quantity: 2 },
+    { id: 2, image: '/images/img2.png', name: 'Nutrition product', price: 39.99, quantity: 1 },
+    { id: 3, image: '/images/img3.png', name: 'Hair care product', price: 49.99, quantity: 1 },
+    { id: 1, image: '/images/img1.png', name: 'Herbal oil product', price: 29.99, quantity: 2 },
+    { id: 2, image: '/images/img2.png', name: 'Nutrition product', price: 39.99, quantity: 1 },
+    { id: 3, image: '/images/img3.png', name: 'Hair care product', price: 49.99, quantity: 1 },
+  ]);
   const calculateTotal = (items) => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   const handleRemoveItem = (itemId) => {
-    // Implement your remove logic here
-    console.log(`Remove item with ID ${itemId}`);
+    // Remove the item with the specified itemId from the cart
+    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
+    setCartItems(updatedCartItems);
   };
   
   const handleToggleCheckout = (itemId, isSelected) => {

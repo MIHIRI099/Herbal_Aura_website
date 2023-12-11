@@ -1,23 +1,40 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-import NavigationBar from '../components/NavigationBar';
-import Footer from '../components/footer';
+import ConfirmationDialog from '../components/ConfirmationDialog';
 // Import your CartTile component
 
 const CheckoutPage = () => {
   const [name, setName] = useState('John Doe'); // Replace with data from your database
   const [address, setAddress] = useState('123 Main St, City'); // Replace with data from your database
-  const [paymentMethod, setPaymentMethod] = useState('cod'); // Default to Cash on Delivery
-
-  const handleEditClick = () => {
-    // Handle the edit button click to enable editing of name and address
+  const [paymentMethod, setPaymentMethod] = useState('cod');
+  const [isConfirmationOpen, setConfirmationOpen] = useState(false); // Default to Cash on Delivery
+  const [isNameEditing, setNameEditing] = useState(false);
+  const [isAddressEditing, setAddressEditing] = useState(false);
+  const handleEditClick = (field) => {
+    // Toggle edit mode for the specified field
+    if (field === 'name') {
+      setNameEditing(!isNameEditing);
+    } else if (field === 'address') {
+      setAddressEditing(!isAddressEditing);
+    }
   };
-
   const handleContinueClick = () => {
     // Handle the continue button click to proceed with the order
+    // Show the confirmation dialog
+    setConfirmationOpen(true);
   };
 
+  const handleConfirmationClose = () => {
+    // Close the confirmation dialog
+    setConfirmationOpen(false);
+  };
+  const cartItems = [
+    { id: 1, image: '/images/img1.png',name: 'Herbal oil product', price: 29.99, quantity: 2 },
+    { id: 2, image: '/images/img2.png',name: 'Nutrition product', price: 39.99, quantity: 1 },
+    { id: 3, image: '/images/img3.png',name: 'Hare care product', price: 49.99, quantity: 1 },
+  
+  ];
+  const totalPrice = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
   return (
     <div className=''>
       <div className="flex py-4 px-2 rounded-m'">
@@ -31,38 +48,70 @@ const CheckoutPage = () => {
         </Link>
       </div>
 
-      <div className="flex justify-center">
+      <div className="grid grid-cols-2">
         {/* Left Side */}
-        <div className="w-2/3 p-4">
+        <div className="w-3/4 px-10 py-4">
           <h1 className="text-xl font-semibold mb-4">Checkout</h1>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Name</label>
             <div className="flex items-center">
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="border p-2 w-full"
-                disabled
-              />
-              <button onClick={handleEditClick} className="ml-2 bg-green-500 text-white px-4 py-2">
-                Edit
-              </button>
+              {isNameEditing ? (
+                <>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="border p-2 w-full"
+                  />
+                  <button
+                    onClick={() => handleEditClick('name')}
+                    className="ml-2 bg-green-500 text-white px-4 py-2"
+                  >
+                    Save
+                  </button>
+                </>
+              ) : (
+                <>
+                  <span className="border p-2 w-full">{name}</span>
+                  <button
+                    onClick={() => handleEditClick('name')}
+                    className="ml-2 bg-green-500 text-white px-4 py-2"
+                  >
+                    Edit
+                  </button>
+                </>
+              )}
             </div>
           </div>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Shipping Address</label>
             <div className="flex items-center">
-              <input
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                className="border p-2 w-full"
-                disabled
-              />
-              <button onClick={handleEditClick} className="ml-2 bg-green-500 text-white px-4 py-2">
-                Edit
-              </button>
+              {isAddressEditing ? (
+                <>
+                  <input
+                    type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className="border p-2 w-full"
+                  />
+                  <button
+                    onClick={() => handleEditClick('address')}
+                    className="ml-2 bg-green-500 text-white px-4 py-2"
+                  >
+                    Save
+                  </button>
+                </>
+              ) : (
+                <>
+                  <span className="border p-2 w-full">{address}</span>
+                  <button
+                    onClick={() => handleEditClick('address')}
+                    className="ml-2 bg-green-500 text-white px-4 py-2"
+                  >
+                    Edit
+                  </button>
+                </>
+              )}
             </div>
           </div>
           <div className="mb-4">
@@ -97,7 +146,25 @@ const CheckoutPage = () => {
         </div>
 
         {/* Right Side - Cart Summary */}
-        
+        <div className="col-span-1 p-4 w-1/2 content-right bg-gray-100 border border-gray-300 rounded">
+  <h2 className="text-xl font-semibold mb-4">Cart Summary</h2>
+
+  {/* Cart Items */}
+  <ul>
+    {cartItems.map((item) => (
+      <li key={item.id} className="flex justify-between mb-2">
+        <span>{item.name}</span>
+        <span>{item.quantity} x ${item.price.toFixed(2)}</span>
+      </li>
+    ))}
+  </ul>
+
+  {/* Total Price */}
+  <div className="mt-4">
+    <span className="font-semibold">Total:</span> ${totalPrice.toFixed(2)}
+  </div>
+</div>
+        <ConfirmationDialog isOpen={isConfirmationOpen} onClose={handleConfirmationClose} />
       </div>
     </div>
   );

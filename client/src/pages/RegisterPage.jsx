@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Header1 from "../components/Header1";
-import NavigationBar from "../components/NavigationBar";
-import Footer from '../components/footer';
+
 
 export default function RegisterPage() {
   const [full_name, setName] = useState("");
@@ -67,14 +65,17 @@ export default function RegisterPage() {
               value={full_name}
               onChange={(e) => setName(e.target.value)}
             />
-            <label htmlFor="Gender">Gender</label>
-            <input
-              type="text"
+             <label htmlFor="Gender">Gender</label>
+            <select
               name="Gender"
-              placeholder="Male/Female/Other"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
-            />
+            >
+              <option value="" disabled>Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
             <div className="flex">
               <div className="mr-2">
                 <label htmlFor="day">Day</label>
