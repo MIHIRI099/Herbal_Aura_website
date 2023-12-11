@@ -1,19 +1,59 @@
-import { useContext ,useState}from "react";
-import { Link } from "react-router-dom";
+import { useContext ,useState,useEffect}from "react";
+import { Link,useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext.jsx";
+import axios from "axios";
 
 export default function Header() {
   const {user} = useContext(UserContext);
   const [searchQuery, setSearchQuery] = useState("");
+  const [allProducts, setAllProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data } = await axios.get("/api/products");
+        setAllProducts(data);
+        setFilteredProducts(data); // Initially, show all products
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+    fetchProducts();
+  }, []);
+
   const handleSearchChange = (e) => {
-      setSearchQuery(e.target.value);
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    // Filter products based on the search query
+    const filtered = allProducts.filter(product =>
+      product.name.toLowerCase().startsWith(query.toLowerCase())
+    );
+
+    setFilteredProducts(filtered);
   };
+
   const handleSearchSubmit = (e) => {
-      e.preventDefault();
-      // Implement your search logic here, for example, redirect to a search results page
-      console.log("Search query:", searchQuery);
-      // Clear the search input after submitting the form
-      setSearchQuery("");
+    e.preventDefault();
+    // Redirect to search results page or product page
+    console.log("Search query:", searchQuery);
+    // Clear the search input after submitting the form
+    setSearchQuery("");
+
+    // Redirect to the product page if there is a single matching result
+    if (filteredProducts.length === 1) {
+      const productId = filteredProducts[0].id;
+      navigate(`/product/${productId}`); // Use navigate instead of history.push
+    }
+  };
+
+  const handleProductClick = (productId) => {
+    // Redirect to the product page when a suggestion is clicked
+    navigate(`/product/${productId}`); // Use navigate instead of history.push
+    // Clear the search input after clicking a suggestion
+    setSearchQuery("");
   };
   const numberOfCartItems = 1;
 
@@ -23,21 +63,46 @@ export default function Header() {
         <img src=".\images\HERBAL logo.png" alt="" className="w-14 h-14" />
         <span className='bottom-0 top-10 text-green-600 text-xl'>HERBAL AURA</span>
       </a>
-      <form onSubmit={handleSearchSubmit} className='flex items-center border border-green-800 rounded-full px-6'>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          placeholder="Search here..."
-          className='flex-grow outline-none border-none px-4 py-1'
-        />
-        <button type="submit" className='flex items-center gap-2 border border-green-800 rounded-full py-1 px-4 text-green-200 bg-green-800 hover:bg-green-600'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.5 15.5l5.5 5.5" />
-            <circle cx="11" cy="11" r="8" />
-          </svg>
-        </button>
-      </form>
+      <form onSubmit={handleSearchSubmit} className='relative flex items-center border border-green-800 rounded-full px-2'>
+  <input
+    type="text"
+    value={searchQuery}
+    onChange={handleSearchChange}
+    placeholder="Search here..."
+    className='flex-grow outline-none border-none px-2 py-1'
+  />
+  <button type="submit" className='flex items-center gap-2 border border-green-800 rounded-full py-1 px-2 text-green-200 bg-green-800 hover:bg-green-600'>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.5 15.5l5.5 5.5" />
+      <circle cx="11" cy="11" r="8" />
+    </svg>
+  </button>
+
+  {/* Dropdown for search suggestions */}
+  {searchQuery && filteredProducts.length > 0 && (
+    <div className="absolute top-full left-0 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-md overflow-hidden">
+      {filteredProducts.map(product => {
+        // Split the name into matching and remaining parts
+        const index = product.name.toLowerCase().indexOf(searchQuery.toLowerCase());
+        const matchingPart = product.name.substring(0, index + searchQuery.length);
+        const remainingPart = product.name.substring(index + searchQuery.length);
+
+        return (
+          <div
+            key={product.id}
+            className="p-3 cursor-pointer hover:bg-gray-100"
+            onClick={() => handleProductClick(product.id)}
+          >
+            <span className="text-black">{matchingPart}</span>
+            <span className="text-gray-500">{remainingPart}</span>
+          </div>
+        );
+      })}
+    </div>
+  )}
+</form>
+
+
       <Link to="/cart" className='relative px-20'>
         <div className='flex items-center gap-5 border border-green-800 rounded-full py-2 px-2 text-green-200 bg bg-green-800 relative'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">

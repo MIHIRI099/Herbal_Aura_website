@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "image": "/images/img1.png",
+    "name": "Herbal oil product",
+    "price": 29.99,
+    "category": "Hair oil products",
+    "description": "Experience the nourishing power of Herbal Aura's Herbal Oil Product. This carefully crafted formula is designed to promote healthy hair and scalp. Enriched with natural ingredients, it's a must-have in your hair care routine."
+  },
+  {
+    "id": 2,
+    "image": "/images/img2.png",
+    "name": "Nutrition product",
+    "price": 39.99,
+    "category": "Wellness products",
+    "description": "Elevate your wellness journey with Herbal Aura's Nutrition Product. Packed with essential nutrients, this product supports your overall health and vitality. Trust Herbal Aura for your well-being."
+  },
+  {
+    "id": 3,
+    "image": "/images/img3.png",
+    "name": "Hair care product 1",
+    "price": 49.99,
+    "category": "Hair care products",
+    "description": "Indulge in the luxury of Herbal Aura's Hair Care Product. Specially formulated for beautiful and luscious hair, this product is your secret to salon-like results at home. Treat your hair to the care it deserves."
+  },
+  {
+    "id": 4,
+    "image": "/images/img4.png",
+    "name": "Immunity Boosters",
+    "price": 59.99,
+    "category": "Wellness products",
+    "description": "Boost your immunity with Herbal Aura's Immunity Boosters. Strengthen your body's defenses naturally and stay resilient against daily challenges. Trust Herbal Aura for a healthier, more vibrant you."
+  },
+  {
+    "id": 5,
+    "image": "/images/img5.png",
+    "name": "Face wash",
+    "price": 39.99,
+    "category": "Skin care products",
+    "description": "Revitalize your skin with Herbal Aura's Face Wash. Gentle yet effective, this face wash cleanses and rejuvenates, leaving your skin feeling fresh and radiant. Pamper yourself with the goodness of Herbal Aura."
+  },
+  {
+    "id": 6,
+    "image": "/images/img6.png",
+    "name": "Face cream",
+    "price": 89.99,
+    "category": "Skin care products",
+    "description": "Experience the luxury of Herbal Aura's Face Cream. This indulgent formula hydrates and nourishes your skin, promoting a youthful and radiant complexion. Unleash the beauty within with Herbal Aura."
+  },
+  {
+    "id": 7,
+    "image": "/images/img7.png",
+    "name": "Body wash",
+    "price": 49.99,
+    "category": "Skin care products",
+    "description": "Transform your shower routine with Herbal Aura's Body Wash. Enriched with natural ingredients, it cleanses and moisturizes, leaving your skin feeling soft and invigorated. Elevate your skincare ritual with Herbal Aura."
+  },
+  {
+    "id": 8,
+    "image": "/images/img1.png",
+    "name": "Herbal oil product 1",
+    "price": 29.99,
+    "category": "Hair oil products",
+    "description": "Experience the nourishing power of Herbal Aura's Herbal Oil Product. This carefully crafted formula is designed to promote healthy hair and scalp. Enriched with natural ingredients, it's a must-have in your hair care routine."
+  },
+  {
+    "id": 9,
+    "image": "/images/img2.png",
+    "name": "Nutrition product 1",
+    "price": 39.99,
+    "category": "Wellness products",
+    "description": "Elevate your wellness journey with Herbal Aura's Nutrition Product. Packed with essential nutrients, this product supports your overall health and vitality. Trust Herbal Aura for your well-being."
+  },
+  {
+    "id": 10,
+    "image": "/images/img3.png",
+    "name": "Hair care product 2",
+    "price": 49.99,
+    "category": "Hair care products",
+    "description": "Indulge in the luxury of Herbal Aura's Hair Care Product. Specially formulated for beautiful and luscious hair, this product is your secret to salon-like results at home. Treat your hair to the care it deserves."
+  },
+  {
+    "id": 11,
+    "image": "/images/img4.png",
+    "name": "Immunity Boosters 1",
+    "price": 59.99,
+    "category": "Wellness products",
+    "description": "Boost your immunity with Herbal Aura's Immunity Boosters. Strengthen your body's defenses naturally and stay resilient against daily challenges. Trust Herbal Aura for a healthier, more vibrant you."
+  },
+  {
+    "id": 12,
+    "image": "/images/img5.png",
+    "name": "Face wash 1",
+    "price": 39.99,
+    "category": "Skin care products",
+    "description": "Revitalize your skin with Herbal Aura's Face Wash. Gentle yet effective, this face wash cleanses and rejuvenates, leaving your skin feeling fresh and radiant. Pamper yourself with the goodness of Herbal Aura."
+  },
+  {
+    "id": 13,
+    "image": "/images/img6.png",
+    "name": "Face cream 1",
+    "price": 89.99,
+    "category": "Skin care products",
+    "description": "Experience the luxury of Herbal Aura's Face Cream. This indulgent formula hydrates and nourishes your skin, promoting a youthful and radiant complexion. Unleash the beauty within with Herbal Aura."
+  },
+  {
+    "id": 14,
+    "image": "/images/img7.png",
+    "name": "Body wash 1",
+    "price": 49.99,
+    "category": "Skin care products",
+    "description": "Transform your shower routine with Herbal Aura's Body Wash. Enriched with natural ingredients, it cleanses and moisturizes, leaving your skin feeling soft and invigorated. Elevate your skincare ritual with Herbal Aura."
+  },
+  {
+    "id": 15,
+    "image": "/images/img7.png",
+    "name": "Body wash 2",
+    "price": 49.99,
+    "category": "Skin care products",
+    "description": "Transform your shower routine with Herbal Aura's Body Wash. Enriched with natural ingredients, it cleanses and moisturizes, leaving your skin feeling soft and invigorated. Elevate your skincare ritual with Herbal Aura."
+  },    
+  {
+    "id": 16,
+    "image": "/images/img1.png",
+    "name": "Hair Serum",
+    "price": 34.99,
+    "category": "Hair oil products",
+    "description": "Achieve silky-smooth hair with Herbal Aura's Hair Serum. This lightweight formula nourishes and tames frizz, leaving your hair looking sleek and shiny."
+  },
+  {
+    "id": 17,
+    "image": "/images/img2.png",
+    "name": "Vitamin C Capsules",
+    "price": 49.99,
+    "category": "Wellness products",
+    "description": "Support your immune system with Herbal Aura's Vitamin C Capsules. Packed with antioxidants, these capsules boost your overall well-being and vitality."
+  },
+  {
+    "id": 18,
+    "image": "/images/img3.png",
+    "name": "Curl Enhancing Cream",
+    "price": 39.99,
+    "category": "Hair care products",
+    "description": "Define and enhance your curls with Herbal Aura's Curl Enhancing Cream. Formulated for curly hair, this cream adds moisture and bounce to your locks."
+  },
+  {
+    "id": 19,
+    "image": "/images/img4.png",
+    "name": "Herbal Tea Blend",
+    "price": 19.99,
+    "category": "Wellness products",
+    "description": "Unwind with Herbal Aura's Herbal Tea Blend. This soothing blend of herbs promotes relaxation and provides a comforting experience."
+  },
+  {
+    "id": 20,
+    "image": "/images/img5.png",
+    "name": "Gentle Exfoliating Scrub",
+    "price": 29.99,
+    "category": "Skin care products",
+    "description": "Reveal radiant skin with Herbal Aura's Gentle Exfoliating Scrub. The natural exfoliants gently buff away impurities, leaving your skin smooth and refreshed."
+  },
+  {
+    "id": 21,
+    "image": "/images/img6.png",
+    "name": "Anti-Aging Night Cream",
+    "price": 69.99,
+    "category": "Skin care products",
+    "description": "Turn back the clock with Herbal Aura's Anti-Aging Night Cream. This rich cream works overnight to reduce fine lines and promote skin renewal."
+  },
+  {
+    "id": 22,
+    "image": "/images/img7.png",
+    "name": "Moisturizing Body Lotion",
+    "price": 34.99,
+    "category": "Skin care products",
+    "description": "Hydrate your skin with Herbal Aura's Moisturizing Body Lotion. The lightweight formula absorbs quickly, leaving your skin soft and supple."
+  },
+  {
+    "id": 23,
+    "image": "/images/img1.png",
+    "name": "Revitalizing Hair Mask",
+    "price": 49.99,
+    "category": "Hair care products",
+    "description": "Treat your hair to a spa day with Herbal Aura's Revitalizing Hair Mask. This deep conditioning mask restores vitality and shine to your tresses."
+  },
+  {
+    "id": 24,
+    "image": "/images/img2.png",
+    "name": "Probiotic Supplements",
+    "price": 54.99,
+    "category": "Wellness products",
+    "description": "Support your gut health with Herbal Aura's Probiotic Supplements. These capsules contain beneficial bacteria to maintain a healthy digestive system."
+  },
+  {
+    "id": 25,
+    "image": "/images/img3.png",
+    "name": "Silk Sleep Mask",
+    "price": 19.99,
+    "category": "Wellness products",
+    "description": "Improve your sleep quality with Herbal Aura's Silk Sleep Mask. The soft and luxurious mask creates a gentle barrier for a restful night's sleep."
+  },
+  {
+    "id": 26,
+    "image": "/images/img4.png",
+    "name": "Refreshing Toner",
+    "price": 24.99,
+    "category": "Skin care products",
+    "description": "Balance and refresh your skin with Herbal Aura's Refreshing Toner. This alcohol-free toner gently tones and prepares your skin for the next steps in your skincare routine."
+  },
+  {
+    "id": 27,
+    "image": "/images/img5.png",
+    "name": "Hydrating Eye Cream",
+    "price": 44.99,
+    "category": "Skin care products",
+    "description": "Awaken tired eyes with Herbal Aura's Hydrating Eye Cream. The lightweight formula hydrates the delicate eye area, reducing the appearance of puffiness and fine lines."
+  } 
+]
