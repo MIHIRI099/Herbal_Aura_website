@@ -33,25 +33,24 @@ const WellnessPage = () => {
 
   return (
     <div className=''>
-      <Header />
-      <NavigationBar />
+      <div className=''>
         <div className='flex flex-wrap'>
-        {allProducts.map((product) => (
-          <Link to={`/product/${product.id}`} key={product.id} className="no-underline">
-            {/* Move the Link component here */}
-            <ProductBox
-              image={product.image}
-              name={product.name}
-              description={product.description}
-              price={product.price}
-            />
-          </Link>
-        ))}
+          {allProducts.map((product) => (
+            <Link to={`/product/${product.id}`} key={product.id} className="no-underline">
+              {/* Move the Link component here */}
+              <ProductBox
+                image={product.image}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+              />
+            </Link>
+          ))}
         </div>
-      
-      <Footer />
+      </div>
     </div>
   );
+  
 };
 
 export default WellnessPage;

@@ -42,8 +42,6 @@ const SkinCarePage = () => {
 
   return (
     <div className=''>
-      <Header />
-      <NavigationBar />
         <div className='flex flex-wrap'>
         {allProducts.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id} className="no-underline">
@@ -57,8 +55,6 @@ const SkinCarePage = () => {
           </Link>
         ))}
         </div>
-      
-      <Footer />
     </div>
   );
 };

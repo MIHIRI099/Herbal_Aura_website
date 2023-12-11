@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-// eslint-disable-next-line react/prop-types
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const ProductFilter = ({ categories, onFilterChange }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -25,20 +24,20 @@ const ProductFilter = ({ categories, onFilterChange }) => {
 
   return (
     <div className="flex p-4">
-    <div className="flex flex-col items-start bg-green-50 p-8 outline-double ">
-      <h2 className="text-lg text-green-800 font-semibold mb-2">Filter by Category</h2>
-      {categories.map((category) => (
-        <label key={category} className="flex items-center mb-2">
-          <input
-            type="checkbox"
-            className="mr-2"
-            onChange={() => handleCategoryChange(category)}
-            checked={selectedCategories.includes(category)}
-          />
-          {category}
-        </label>
-      ))}
-    </div>
+      <div className="flex flex-col items-start bg-green-50 p-8 rounded-md shadow-md w-64">
+        <h2 className="text-lg text-green-800 font-semibold mb-4">Filter by Category</h2>
+        {categories.map((category) => (
+          <label key={category} className="flex items-center mb-2">
+            <input
+              type="checkbox"
+              className="mr-2 text-green-500 focus:ring-green-300"
+              onChange={() => handleCategoryChange(category)}
+              checked={selectedCategories.includes(category)}
+            />
+            <span className="text-gray-700">{category}</span>
+          </label>
+        ))}
+      </div>
     </div>
   );
 };

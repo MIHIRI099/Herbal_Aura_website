@@ -32,11 +32,7 @@ const CartPage = () => {
     }
   };
   return (
-    <div className='bg-green-50'>
-      <div className=''>
-        <Header />
-        <NavigationBar />
-      </div>      
+    <div className='bg-green-50'>    
       <div className="">
         <div className="flex  py-4 px-2 rounded-m align-middle">
           <div className="flex  py-4 px-2 rounded-m'">
@@ -87,7 +83,6 @@ const CartPage = () => {
         )}
         
       </div>
-      <Footer />
     </div>
   );
 };

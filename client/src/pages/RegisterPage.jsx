@@ -52,8 +52,6 @@ export default function RegisterPage() {
 
   return (
     <div className="w-full">
-    <Header1 />
-    <NavigationBar />
     <div className=" grow flex-col flex items-center justify-around bg-green-100 h-full">
       <div className="mb-60 flex-grow">
         <h1 className="text-3xl text-center mb-4 font-serif py-4 px-10">REGISTER</h1>
@@ -172,7 +170,6 @@ export default function RegisterPage() {
       </div>
     </div>
   </div>
-  <Footer />
   </div>
 );
 }

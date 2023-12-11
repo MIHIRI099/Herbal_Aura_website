@@ -19,9 +19,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className='h-screen'>
-      <Header />
-      <NavigationBar />
+    <div className=''>
       <div className="flex py-4 px-2 rounded-m'">
         <Link to={'/cart'}>
           <div className='flex items-center gap-1 border-green-400 py-1 px-2 text-green-200 bg bg-green-600 rounded-m'>
@@ -33,7 +31,7 @@ const CheckoutPage = () => {
         </Link>
       </div>
 
-      <div className="flex justify-center h-screen">
+      <div className="flex justify-center">
         {/* Left Side */}
         <div className="w-2/3 p-4">
           <h1 className="text-xl font-semibold mb-4">Checkout</h1>
@@ -101,7 +99,6 @@ const CheckoutPage = () => {
         {/* Right Side - Cart Summary */}
         
       </div>
-      <Footer />
     </div>
   );
 };

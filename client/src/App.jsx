@@ -12,6 +12,7 @@ import WellnessPage from "./pages/WellnessPage.jsx"
 import HairCarePage from "./pages/HairCarePage.jsx"
 import HairOilPage from "./pages/HairOilpage.jsx"
 import SkinCarePage from "./pages/SkinCarePage.jsx"
+import Layout from "./Layout.jsx"
 
 
 axios.defaults.baseURL = "http://localhost:9000";
@@ -21,7 +22,8 @@ function App() {
   return (
     <UserContextProvider>
       <Routes>
-        <Route path="/" element={<IndexPage />} />
+        <Route path="/" element={<Layout />} >
+        <Route index element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/cart" element={<CartPage />} />
@@ -31,7 +33,7 @@ function App() {
         <Route path="/haircare" element={<HairCarePage/>} />
         <Route path="/hairoil" element={<HairOilPage/>} />
         <Route path="/skincare" element={<SkinCarePage/>} />
-
+        </Route>
       </Routes>
     </UserContextProvider>
   );
