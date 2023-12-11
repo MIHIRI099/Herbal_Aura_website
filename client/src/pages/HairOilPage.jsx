@@ -28,15 +28,14 @@ const HairOilPage = () => {
     <div className=''>
         <div className='flex flex-wrap'>
         {allProducts.map((product) => (
-          <Link to={`/product/${product.id}`} key={product.id} className="no-underline">
-            {/* Move the Link component here */}
             <ProductBox
-              image={product.image}
-              name={product.name}
-              description={product.description}
-              price={product.price}
+            key={product.id}
+            image={product.image}
+            name={product.name}
+            //description={product.description}
+            price={product.price}
+            productId={product.id} 
             />
-          </Link>
         ))}
         </div>
     </div>

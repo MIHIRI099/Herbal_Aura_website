@@ -27,21 +27,21 @@ export default function NavigationBar() {
       </a>
    
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location === '/haircare' ? 'bg-green-200 text-green-800' : ''}`}
+        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location.pathname === '/haircare' ? 'bg-green-200 text-green-800' : ''}`}
         href="/haircare"
         onClick={() => handleTabClick('haircare')}
       >
         Hair Care Products
       </a>
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location === '/skincare' ? 'bg-green-200 text-green-800' : ''}`}
+        className={`px-10 py-2 text-green-200 hover:text-green-400  ${location.pathname === '/skincare' ? 'bg-green-200 text-green-800' : ''}`}
         href="/skincare"
         onClick={() => handleTabClick('skincare')}
       >
         Skin Care Products
       </a>
       <a
-        className={`px-10 py-2 text-green-200 hover:text-green-400 f ${location === '/hairoil' ? 'bg-green-200 text-green-800' : ''}`}
+        className={`px-10 py-2 text-green-200 hover:text-green-400 f ${location.pathname === '/hairoil' ? 'bg-green-200 text-green-800' : ''}`}
         href="/hairoil"
         onClick={() => handleTabClick('hairoil')}
       >
