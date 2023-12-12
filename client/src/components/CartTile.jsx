@@ -3,13 +3,8 @@
 import  { useState } from 'react';
 
 const CartTile = ({ id, image, name, description, price, quantity, onRemove, onToggleCheckout }) => {
+ 
   const [isSelected, setIsSelected] = useState(true);
-  const handleCheckboxChange = () => {
-    setIsSelected(!isSelected);
-    onToggleCheckout(id, !isSelected); // Notify the parent component about the selection change
-  };
- 
- 
   const tileContainerStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -61,9 +56,16 @@ const CartTile = ({ id, image, name, description, price, quantity, onRemove, onT
 
   const [localQuantity, setLocalQuantity] = useState(quantity);
 
+  const handleCheckboxChange = () => {
+    setIsSelected(!isSelected);
+    onToggleCheckout(id, !isSelected); // Notify the parent component about the selection change
+  };
+
   const handleQuantityChange = (amount) => {
-    const newQuantity = Math.max(1, localQuantity + amount); // Ensure quantity is at least 1
+    const newQuantity = Math.max(1, localQuantity + amount);
     setLocalQuantity(newQuantity);
+    // Notify the parent component about the quantity change
+    onToggleCheckout(id, isSelected, newQuantity);
   };
 
   return (
@@ -91,19 +93,19 @@ const CartTile = ({ id, image, name, description, price, quantity, onRemove, onT
           <p>{description}</p>
         </div>
         <div style={detailsStyle}>
-          <p className='font-weight-bold px-6'>Price: Rs.{price.toFixed(2)}</p>
-          <div className='px-6'>
-            <button onClick={() => handleQuantityChange(-1)} className="bg-green-500 text-white h-6 px-4 rounded">-</button>
-            <span className="mx-2">{localQuantity}</span>
-            <button onClick={() => handleQuantityChange(1)} className="bg-green-500 text-white h-6 px-4 rounded">+</button>
-          </div>
-          <p>Total: Rs.{(price * localQuantity).toFixed(2)}</p>
-          <div style={buttonStyle}>
-            <button onClick={() => onRemove()} className="bg-red-700 hover:bg-red-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
-              Remove
-            </button>
-          </div>
+        <p className='font-weight-bold px-6'>Price: Rs.{price.toFixed(2)}</p>
+        <div className='px-6'>
+          <button onClick={() => handleQuantityChange(-1)} className="bg-green-500 text-white h-6 px-4 rounded">-</button>
+          <span className="mx-2">{localQuantity}</span>
+          <button onClick={() => handleQuantityChange(1)} className="bg-green-500 text-white h-6 px-4 rounded">+</button>
         </div>
+        <p>Total: Rs.{(price * localQuantity).toFixed(2)}</p>
+        <div style={buttonStyle}>
+          <button onClick={() => onRemove()} className="bg-red-700 hover:bg-red-200 h-10 text-white text-xs font-bold py-2 px-4 rounded">
+            Remove
+          </button>
+        </div>
+      </div>
       </div>
     </div>
   );

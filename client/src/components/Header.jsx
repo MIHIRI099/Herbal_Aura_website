@@ -3,12 +3,27 @@ import { Link,useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext.jsx";
 import axios from "axios";
 
+
 export default function Header() {
-  const {user} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
   const [searchQuery, setSearchQuery] = useState("");
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [numberOfCartItems, setNumberOfCartItems] = useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchCartItems = async () => {  
+      try {
+        const { data } = await axios.get("/user/numcart");
+        setNumberOfCartItems(data);
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
+    fetchCartItems();
+  }, []);
+  
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -55,7 +70,23 @@ export default function Header() {
     // Clear the search input after clicking a suggestion
     setSearchQuery("");
   };
-  const numberOfCartItems = 1;
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
+  const handleLogout = () => {
+    // Clear the user object from the context
+    // Clear the user object from the local storage
+    setUser(null);
+    
+    // Redirect to the home page
+    //remove token from local storage
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+
+  const userToken = localStorage.getItem("user");
 
   return (
     <header className='flex bg-white justify-center p-4'>
@@ -116,12 +147,16 @@ export default function Header() {
         </div>
       </Link>
       <div className="flex items-center">
-      <Link to="/login" className="ml-0 px-1">
-        <button className="bg-green-800 hover:bg-green-600 text-white py-1 px-8 rounded-full">
-          LogIn
+      {userToken ? (
+        <button onClick={handleLogout} className="ml-0 px-1 bg-red-500 hover:bg-red-400 text-white py-1 px-8 rounded-full">
+          Logout
         </button>
-      </Link>
-      <Link to={'/login'} className='px-4'>
+      ) : (
+        <button onClick={handleLogin} className="ml-0 px-1 bg-green-800 hover:bg-green-600 text-white py-1 px-8 rounded-full">
+          Login
+        </button>
+      )}
+      <div className='px-4'>
         <div className='flex items-center gap-1 border border-green-400 rounded-full py-2 px-2 text-green-200 bg bg-green-800'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -132,10 +167,11 @@ export default function Header() {
             </div>
           )}
         </div>
-      </Link>
+      </div>
       
     </div>
     </header>
   );
 }
+
   

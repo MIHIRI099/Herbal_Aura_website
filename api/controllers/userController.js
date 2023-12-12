@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const Product = require('../models/product');
+const Cart = require('../models/Cartitem');
 const bcrypt = require('bcryptjs');
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwt = require('jsonwebtoken');
@@ -75,6 +77,57 @@ const profile = (req, res) => {
     }
 }
 
+const addToCart = async (req,res) => {
+    try{
+        const productId = req.body.productId;
+        console.log(productId);
+        const productDoc = await Product.findOne({id : productId});
+        console.log(productDoc);
+        const cartDoc = await Cart.create({
+            id:productDoc.id,
+            name:productDoc.name,
+            price:productDoc.price,
+            image:productDoc.image,
+            catagory:productDoc.catagory,
+            description:productDoc.description,
+        });
+    }catch(err){
+        return res.status(500).json({status:'error',message:'Internal Server Error'});
+    }   
+    
+}
+
+const getCart = async (req,res) => {
+    try{
+        console.log('get cart');
+        const cartDoc = await Cart.find();
+        return res.json(cartDoc);
+    }catch(err){
+        return res.status(500).json({status:'error',message:'Internal Server Error'});
+    }
+}
+
+const deleteCart = async (req,res) => {
+    try{
+        console.log('delete cart');
+        const Id = req.body.itemId;
+        const cartDoc = await Cart.findOneAndDelete({id:Id});
+        return res.json(cartDoc);
+    }catch(err){
+        return res.status(500).json({status:'error',message:'Internal Server Error'});
+    }
+}
+
+const numCart = async (req,res) => {
+    try{
+        //return the number of items in the cart
+        const cartDoc = await Cart.find();
+        return res.json(cartDoc.length);
+    }catch(err){
+        return res.status(500).json({status:'error',message:'Internal Server Error'});
+    }
+}
+
 
 
 
@@ -83,4 +136,8 @@ module.exports = {
     login,
     register,
     profile,
+    addToCart,
+    getCart,
+    deleteCart,
+    numCart,
 };

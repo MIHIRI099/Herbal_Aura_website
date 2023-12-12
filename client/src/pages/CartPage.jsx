@@ -1,36 +1,55 @@
 
 import { Link } from "react-router-dom";
 import CartTile from '../components/CartTile';
-import { useState } from 'react'; // Import the CartTile component
+import { useState,useEffect } from 'react'; // Import the CartTile component
+import axios from 'axios';
 
 
 const CartPage = () => {
   const [selectedItems, setSelectedItems] = useState([]);
-  const [cartItems, setCartItems] = useState([
-    { id: 1, image: '/images/img1.png', name: 'Herbal oil product', price: 29.99, quantity: 2 },
-    { id: 2, image: '/images/img2.png', name: 'Nutrition product', price: 39.99, quantity: 1 },
-    { id: 3, image: '/images/img3.png', name: 'Hair care product', price: 49.99, quantity: 1 },
-    { id: 1, image: '/images/img1.png', name: 'Herbal oil product', price: 29.99, quantity: 2 },
-    { id: 2, image: '/images/img2.png', name: 'Nutrition product', price: 39.99, quantity: 1 },
-    { id: 3, image: '/images/img3.png', name: 'Hair care product', price: 49.99, quantity: 1 },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const getCartItems = async () => {
+      try {
+        const { data } = await axios.get("/user/cart");
+        setCartItems(data);
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
+    getCartItems();
+  }, []);
+
   const calculateTotal = (items) => {
-    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+    console.log(items);
+    const quantity = 1;
+    return items.reduce((total, item) => total + item.price * quantity, 0);
   };
 
   const handleRemoveItem = (itemId) => {
     // Remove the item with the specified itemId from the cart
-    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
-    setCartItems(updatedCartItems);
+    const removecart = async () => {
+      try {
+        const { data } = await axios.post("/user/deletecart", { itemId });
+        console.log(data);
+      } catch (error) {
+        console.error("Error removing product to cart:", error);
+      }
+    };
+    removecart();
+    setCartItems(cartItems.filter((item) => item.id !== itemId));
   };
   
-  const handleToggleCheckout = (itemId, isSelected) => {
+  const handleToggleCheckout = (itemId, isSelected, newQuantity) => {
+    // Update the selected items and quantities in the state
     if (isSelected) {
-      setSelectedItems([...selectedItems, itemId]);
+      setSelectedItems((prevSelectedItems) => [...prevSelectedItems, { itemId, quantity: newQuantity }]);
     } else {
-      setSelectedItems(selectedItems.filter((id) => id !== itemId));
+      setSelectedItems((prevSelectedItems) => prevSelectedItems.filter((item) => item.itemId !== itemId));
     }
   };
+
   return (
     <div className='bg-green-50'>    
       <div className="">
@@ -65,7 +84,7 @@ const CartPage = () => {
             </div>
             {/* Use CartTile component for each item */}
             {cartItems.map((item) => (
-              <CartTile key={item.id} image={item.image} name={item.name} price={item.price} quantity={item.quantity} onRemove={() => handleRemoveItem(item.id)} 
+              <CartTile key={item.id} image={item.image} name={item.name} price={item.price} quantity={1} onRemove={() => handleRemoveItem(item.id)} 
                  onToggleCheckout={handleToggleCheckout}
               />
             ))}

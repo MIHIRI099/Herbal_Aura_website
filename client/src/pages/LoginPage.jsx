@@ -2,9 +2,7 @@ import { Link, Navigate } from "react-router-dom";
 import {useContext, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../UserContext";
-import Header1 from "../components/Header1";
-import NavigationBar from "../components/NavigationBar";
-import Footer from '../components/footer';
+
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -27,7 +25,8 @@ export default function LoginPage() {
             email,
             password,
           });
-          
+          console.log(data);
+          localStorage.setItem('user', data.email);
           setUser(data);
           alert("Login successful");
           setRedirect(true); 

@@ -8,6 +8,10 @@ router.post('/login',user.login);
 router.post('/register',user.register);
 router.get('/profile',user.profile);
 router.get('/test',user.test);
+router.post('/addcart',user.addToCart);
+router.get('/cart',user.getCart);
+router.post('/deletecart',user.deleteCart);
+router.get('/numcart',user.numCart);
 
 
 module.exports = router;
