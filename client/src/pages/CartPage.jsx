@@ -39,6 +39,8 @@ const CartPage = () => {
     };
     removecart();
     setCartItems(cartItems.filter((item) => item.id !== itemId));
+    //relode the page
+    window.location.reload();
   };
   
   const handleToggleCheckout = (itemId, isSelected, newQuantity) => {

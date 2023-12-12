@@ -11,9 +11,7 @@ const ProductBox = ({ image, name, description, price, productId }) => {
     };
 
   const handleBuyNow = () => {
-    // Add logic for "Buy Now" action
-    
-    // For example, you might want to add the product to the shopping cart
+    navigate(`/product/${productId}`);
     alert(`Buying ${name}`);
   };
 
@@ -38,6 +36,7 @@ const ProductBox = ({ image, name, description, price, productId }) => {
     addcart();
     // For example, you might want to add the product to the shopping cart
     alert(`Added ${name} to the cart`);
+    window.location.reload();
   };
 
   return (
