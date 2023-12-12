@@ -11,7 +11,7 @@ const ProductBox = ({ image, name, description, price, productId }) => {
     };
 
   const handleBuyNow = () => {
-    navigate(`/product/${productId}`);
+    navigate(`/checkout`);
     alert(`Buying ${name}`);
   };
 
@@ -43,6 +43,7 @@ const ProductBox = ({ image, name, description, price, productId }) => {
     <div className='px-4 py-4'>
       <div style={{ width: '200px', height: '280px', border: '2px solid #E0E0E0', borderRadius: '8px' }} className='d-flex flex-column mx-2 rounded zoom bg-light shadow-lg bg-white'>
         <img
+          className='hover:opacity-75 tranparent'
           src={image}
           alt={name}
           style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px 8px 0 0', cursor: 'pointer' }}

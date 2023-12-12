@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 
 export default function RegisterPage() {
@@ -14,6 +15,7 @@ export default function RegisterPage() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
+  const navigate = useNavigate();
 
   async function RegisterUser(e) {
     e.preventDefault();
@@ -43,6 +45,8 @@ export default function RegisterPage() {
         year,
       });
       alert("Registration successful");
+      navigate("/login");
+
     } catch (err) {
       alert("Registration failed");
     }
@@ -76,9 +80,10 @@ export default function RegisterPage() {
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
+            <label htmlFor="Gender">Date of Birth</label>
             <div className="flex">
               <div className="mr-2">
-                <label htmlFor="day">Day</label>
+                <label htmlFor="day"></label>
                 <input
                   type="text"
                   name="day"
@@ -88,7 +93,7 @@ export default function RegisterPage() {
                 />
               </div>
               <div className="mr-2">
-                <label htmlFor="month">Month</label>
+                <label htmlFor="month"></label>
                 <input
                   type="text"
                   name="month"
@@ -98,7 +103,7 @@ export default function RegisterPage() {
                 />
               </div>
               <div>
-                <label htmlFor="year">Year</label>
+                <label htmlFor="year"></label>
                 <input
                   type="text"
                   name="year"

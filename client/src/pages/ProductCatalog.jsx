@@ -8,10 +8,13 @@ import {StarIcon} from "@heroicons/react/24/solid"
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const ProductCatalogPage = () => {
   const { id } = useParams();
   const [allProducts, setAllProducts] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -92,6 +95,35 @@ const ProductCatalogPage = () => {
   const filteredReviews = reviews.filter((review) => review.id === selectedProduct.id);
 
   const averageRating = calculateAverageRating(filteredReviews);
+  
+  const handleAddToCart = () => {
+    // Add logic for "Add to Cart" action
+    const user = localStorage.getItem('user');
+    const productId = selectedProduct.id;
+    //user is the email of the user
+    //if user does not exist,aleart and redirect to login page
+    if (!user) {
+      alert("Please login to add to cart");
+      navigate("/login");
+      return;
+    }
+    const addcart = async () => {
+      try {
+        const { data } = await axios.post("/user/addcart", { productId, user });
+        console.log(data);
+      } catch (error) {
+        console.error("Error adding product to cart:", error);
+      }
+    };
+    addcart();
+    // For example, you might want to add the product to the shopping cart
+    alert(`Added ${name} to the cart`);
+    window.location.reload();
+  };
+  const handleBuyNow = () => {
+    navigate(`/checkout`);
+    alert(`Buying ${name}`);
+  };
 
   return (
     <div className='flex-col '>
@@ -137,10 +169,10 @@ const ProductCatalogPage = () => {
               
 
               <div className="flex space-x-5 mt-8">
-                <button className="bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded-md">
+                <button onClick={handleBuyNow} className="bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded-md">
                   Buy Now
                 </button>
-                <button className="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-md">
+                <button onClick={handleAddToCart} className="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-md">
                   Add to Cart
                 </button>
               </div>
