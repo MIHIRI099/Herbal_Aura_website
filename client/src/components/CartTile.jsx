@@ -64,6 +64,12 @@ const CartTile = ({ id, image, name, description, price, quantity, onRemove, onT
   const handleQuantityChange = (amount) => {
     const newQuantity = Math.max(1, localQuantity + amount);
     setLocalQuantity(newQuantity);
+    try {
+      const { data } = axios.post("/user/updatecart", { id, quantity: newQuantity });
+      console.log(data);
+    } catch (error) {
+      console.error("Error updating product to cart:", error);
+    }
     // Notify the parent component about the quantity change
     onToggleCheckout(id, isSelected, newQuantity);
   };

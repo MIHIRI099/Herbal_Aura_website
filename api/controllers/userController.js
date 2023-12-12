@@ -90,6 +90,7 @@ const addToCart = async (req,res) => {
             image:productDoc.image,
             catagory:productDoc.catagory,
             description:productDoc.description,
+            quantity:1,
         });
     }catch(err){
         return res.status(500).json({status:'error',message:'Internal Server Error'});
@@ -128,6 +129,18 @@ const numCart = async (req,res) => {
     }
 }
 
+const updateCart = async (req,res) => {
+    try{
+        const Id = req.body.itemId;
+        const cartDoc = await Cart.findOne({id:Id});
+        cartDoc.quantity = req.body.quantity;
+        cartDoc.save();
+        return res.json(cartDoc);
+    }catch(err){
+        return res.status(500).json({status:'error',message:'Internal Server Error'});
+    }
+}
+
 
 
 
@@ -140,4 +153,5 @@ module.exports = {
     getCart,
     deleteCart,
     numCart,
+    updateCart,
 };

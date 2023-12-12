@@ -12,6 +12,7 @@ router.post('/addcart',user.addToCart);
 router.get('/cart',user.getCart);
 router.post('/deletecart',user.deleteCart);
 router.get('/numcart',user.numCart);
+router.post('/updatecart',user.updateCart);
 
 
 module.exports = router;

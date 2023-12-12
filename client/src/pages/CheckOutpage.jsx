@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ConfirmationDialog from '../components/ConfirmationDialog';
 // Import your CartTile component
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const CheckoutPage = () => {
   const [name, setName] = useState('John Doe'); // Replace with data from your database
@@ -10,6 +12,20 @@ const CheckoutPage = () => {
   const [isConfirmationOpen, setConfirmationOpen] = useState(false); // Default to Cash on Delivery
   const [isNameEditing, setNameEditing] = useState(false);
   const [isAddressEditing, setAddressEditing] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const getCartItems = async () => {
+      try {
+        const { data } = await axios.get("/user/cart");
+        setCartItems(data);
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
+    getCartItems();
+  }, []);
+
   const handleEditClick = (field) => {
     // Toggle edit mode for the specified field
     if (field === 'name') {
@@ -28,12 +44,12 @@ const CheckoutPage = () => {
     // Close the confirmation dialog
     setConfirmationOpen(false);
   };
-  const cartItems = [
-    { id: 1, image: '/images/img1.png',name: 'Herbal oil product', price: 29.99, quantity: 2 },
-    { id: 2, image: '/images/img2.png',name: 'Nutrition product', price: 39.99, quantity: 1 },
-    { id: 3, image: '/images/img3.png',name: 'Hare care product', price: 49.99, quantity: 1 },
+  // const cartItems = [
+  //   { id: 1, image: '/images/img1.png',name: 'Herbal oil product', price: 29.99, quantity: 2 },
+  //   { id: 2, image: '/images/img2.png',name: 'Nutrition product', price: 39.99, quantity: 1 },
+  //   { id: 3, image: '/images/img3.png',name: 'Hare care product', price: 49.99, quantity: 1 },
   
-  ];
+  // ];
   const totalPrice = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
   return (
     <div className=''>

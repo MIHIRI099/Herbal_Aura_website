@@ -7,6 +7,7 @@ const CartSchema = new Schema({
         image: String,
         catagory: String,
         description: String,
+        quantity: Number,
 });
 
 const CartModel = mongoose.model('Cartitem',CartSchema);

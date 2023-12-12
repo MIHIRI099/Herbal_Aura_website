@@ -23,8 +23,7 @@ const CartPage = () => {
 
   const calculateTotal = (items) => {
     console.log(items);
-    const quantity = 1;
-    return items.reduce((total, item) => total + item.price * quantity, 0);
+    return items.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   const handleRemoveItem = (itemId) => {
@@ -86,7 +85,7 @@ const CartPage = () => {
             </div>
             {/* Use CartTile component for each item */}
             {cartItems.map((item) => (
-              <CartTile key={item.id} image={item.image} name={item.name} price={item.price} quantity={1} onRemove={() => handleRemoveItem(item.id)} 
+              <CartTile key={item.id} image={item.image} name={item.name} price={item.price} quantity={item.quantity} onRemove={() => handleRemoveItem(item.id)} 
                  onToggleCheckout={handleToggleCheckout}
               />
             ))}
