@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 
 import  { useState } from 'react';
@@ -8,7 +9,7 @@ const CartTile = ({ id, image, name, description, price, quantity, onRemove, onT
   const tileContainerStyle = {
     display: 'flex',
     alignItems: 'center',
-    width: '60%',
+    width: '70%',
     borderRadius: '20px', // Circular corners
     backgroundColor: '#ffffff', // Fill color
     border: '1px solid #ddd',
@@ -50,7 +51,7 @@ const CartTile = ({ id, image, name, description, price, quantity, onRemove, onT
   };
 
   const buttonStyle = {
-    marginLeft: '20px',
+    marginLeft: '10px',
     alignSelf: 'flex-end',
   };
 

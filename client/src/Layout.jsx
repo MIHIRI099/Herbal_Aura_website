@@ -22,7 +22,6 @@ export default function Layout() {
         {renderHeader()}
         <NavigationBar />
       </div>
-
       <div className="flex-grow pt-32">
         <Outlet />
       </div>

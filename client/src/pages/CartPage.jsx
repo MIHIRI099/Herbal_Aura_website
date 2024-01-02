@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 const CartPage = () => {
+  // eslint-disable-next-line no-unused-vars
   const [selectedItems, setSelectedItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { Typography } from "@material-tailwind/react";
  
 const LINKS = [
